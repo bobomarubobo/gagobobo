@@ -1,0 +1,54 @@
+/*배경이랑 네비*/
+
+.header {
+    overflow: hidden;
+    padding: 20px;
+    text-align: center;
+    line-height: 800px;
+    width:900;
+    height:1000px;
+    background-color:rgb(255, 255, 255);
+    font-family: "Roboto", sans-serif;
+    font-weight: 100;
+}
+body {
+    font-family: Arial, sans-serif;
+    background-color: skyblue;
+    padding-top: 20px;
+    font-family: "Roboto", sans-serif;
+  
+  }
+
+#eff{
+    
+    width: 15%; height: 50px; 
+    position:absolute; 
+    margin: 20px 30px 20px 30px; 
+    margin-left: 800px;
+    margin-top: 50px;
+    text-emphasis: none;
+    text-align: center; line-height: 50px;
+    background-color: #ffffff63;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    text-decoration: none;
+    margin-left: 600px;
+    font-family: "Roboto", sans-serif;
+  font-weight: 100;
+
+}
+#DoDoDO{
+    width: 15%; height: 50px; 
+    position: absolute; 
+    margin: 20px 40px 20px 40px; 
+    margin-left: 300px;
+    margin-top: 50px;
+    text-emphasis: none;
+    text-align: center; line-height: 50px;
+    background-color: #ffffff63;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    text-decoration: none;
+    margin-left: 1000px;
+    font-family: 'Roboto';
+}
