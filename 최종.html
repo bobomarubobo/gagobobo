@@ -83,16 +83,14 @@
         }
         
         /*-----------------------------------------여기서 부터 컨테이너-----------------------------*/
-        .container {
+        .container,
+        #dexPageId {
             background-color: #ffffff;
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             padding: 40px;
             margin-bottom: 20px;
-            margin-top:-750px;
-            
-            
-
+            margin-top: -750px;
         }
 
         .item-image {
@@ -363,6 +361,8 @@
             margin: 10px;
             width: 100px;
             height: 150px;
+            pointer-events: none; /* 비활성화 */
+            opacity: 0.5; /* 반투명 */
         }
 
         .dex-item img {
@@ -377,9 +377,11 @@
 
         .dex-item:hover {
             background-color: #f0f0f0;
-            cursor: pointer;
         }
-
+        .dex-item.active {
+            pointer-events: auto; /* 활성화 */
+            opacity: 1; /* 불투명 */
+        }
         .dex-details {
             display: none;
             padding: 20px;
@@ -427,19 +429,19 @@
     <div id="dexPageId" class="container">
         <h1>도감 페이지</h1>
         <div class="dex-container">
-            <div class="dex-item" onclick="showDexDetails('item1')">
+            <div class="dex-item active" id="dexItem1" onclick="showDexDetails('item1')">
                 <img src="image1.png" alt="검">
                 <h3>검</h3>
             </div>
-            <div class="dex-item" onclick="showDexDetails('item2')">
+            <div class="dex-item" id="dexItem2" onclick="showDexDetails('item2')">
                 <img src="image2.png" alt="총">
                 <h3>총</h3>
             </div>
-            <div class="dex-item" onclick="showDexDetails('item3')">
+            <div class="dex-item" id="dexItem3" onclick="showDexDetails('item3')">
                 <img src="image3.png" alt="로켓">
                 <h3>로켓</h3>
             </div>
-            <div class="dex-item" onclick="showDexDetails('item4')">
+            <div class="dex-item" id="dexItem4" onclick="showDexDetails('item4')">
                 <img src="image4.png" alt="핵">
                 <h3>핵</h3>
             </div>
@@ -550,6 +552,10 @@
                 itemDetails.style.display = 'block';
             }
         }
+        function enableDexItem(itemId) {
+            var dexItem = document.getElementById(itemId);
+            dexItem.classList.add('active');
+        }
         // 코멘트 삭제 함수
         function deleteComment(index) {
                     // 해당 인덱스의 댓글 삭제
@@ -599,6 +605,7 @@
                             successRateElement.textContent = "성공 확률: 70%";
                             failureRateElement.textContent = "실패 확률: 30%";
                             successCountElement.innerHTML = "<span class='success-text'>총으로 변환!</span>";
+                            enableDexItem('dexItem2');
                         }
                         else if (document.getElementById("itemImage").src.includes("gun.jpg")) {
                             // 총이 +5로 강화됐을 때 로켓으로 바뀌어서 강화 단계를 다시 초기화
@@ -609,6 +616,7 @@
                             successRateElement.textContent = "성공 확률: 60%";
                             failureRateElement.textContent = "실패 확률: 40%";
                             successCountElement.innerHTML = "<span class='success-text'>로켓으로 변환!</span>";
+                            enableDexItem('dexItem3');
                         }
                         else if (document.getElementById("itemImage").src.includes("rocket.jpg")) {// 로켓이 +5로 강화됐을 때 핵으로 바뀌어서 강화 단계를 다시 초기화
                             document.getElementById("itemImage").src = "nuclear.jpg";
@@ -618,6 +626,7 @@
                             successRateElement.textContent = "성공 확률: 50%";
                             failureRateElement.textContent = "실패 확률: 50%";
                             successCountElement.innerHTML = "<span class='success-text'>핵으로 변환!</span>";
+                            enableDexItem('dexItem4');
                         }
                         else if (document.getElementById("itemImage").src.includes("nuclear.jpg")) {// 핵이 +5로 강화됐을 때 풍선으로 바뀌고 강화하기 버튼 비활성화 및 텍스트 변경
                             document.getElementById("itemImage").src = "balloon.jpg";
