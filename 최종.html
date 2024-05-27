@@ -203,7 +203,7 @@
             /* 테두리 스타일 추가 */
             border-radius: 10px;
             /* 테두리 둥글게 만듦 */
-            margin-top: 200px;
+            margin-top: 500px;
         }
 
         /* 평균 별점을 중앙에 정렬하는 CSS */
@@ -407,19 +407,19 @@
         <h1>도감 페이지</h1>
         <div class="dex-container">
             <div class="dex-item active" id="dexItem1" onclick="showDexDetails('item1')">
-                <img src="image1.png" alt="검">
+                <img src="sword.jpg" alt="검">
                 <h3>검</h3>
             </div>
             <div class="dex-item" id="dexItem2" onclick="showDexDetails('item2')">
-                <img src="image2.png" alt="총">
+                <img src="gun.jpg" alt="총">
                 <h3>총</h3>
             </div>
             <div class="dex-item" id="dexItem3" onclick="showDexDetails('item3')">
-                <img src="image3.png" alt="로켓">
+                <img src="rocket.jpg" alt="로켓">
                 <h3>로켓</h3>
             </div>
             <div class="dex-item" id="dexItem4" onclick="showDexDetails('item4')">
-                <img src="image4.png" alt="핵">
+                <img src="nuclear.jpg" alt="핵">
                 <h3>핵</h3>
             </div>
         </div>
@@ -586,7 +586,7 @@
                     failureRate = 0.3; // 실패 확률 변경
                     successRateElement.textContent = "성공 확률: 70%";
                     failureRateElement.textContent = "실패 확률: 30%";
-                    successCountElement.innerHTML = "<span class='success-text'>총으로 변환!</span>";
+                    successCountElement.innerHTML = "<span class='success-text'>업그레이드 성공!</span>";
                     enhanceLevel = 0; // 강화 레벨 초기화
                     enableDexItem('dexItem2'); // 총 아이템 활성화
                 } else if (document.getElementById("itemImage").src.includes("gun.jpg")) {
@@ -597,7 +597,7 @@
                     failureRate = 0.4; // 실패 확률 변경
                     successRateElement.textContent = "성공 확률: 60%";
                     failureRateElement.textContent = "실패 확률: 40%";
-                    successCountElement.innerHTML = "<span class='success-text'>로켓으로 변환!</span>";
+                    successCountElement.innerHTML = "<span class='success-text'>업그레이드 성공!</span>";
                     enhanceLevel = 0; // 강화 레벨 초기화
                     enableDexItem('dexItem3'); // 로켓 아이템 활성화
                 } else if (document.getElementById("itemImage").src.includes("rocket.jpg")) { // 로켓이 +5로 강화됐을 때 핵으로 바뀌어서 강화 단계를 다시 초기화
@@ -607,14 +607,14 @@
                     failureRate = 0.5; // 실패 확률 변경
                     successRateElement.textContent = "성공 확률: 50%";
                     failureRateElement.textContent = "실패 확률: 50%";
-                    successCountElement.innerHTML = "<span class='success-text'>핵으로 변환!</span>";
+                    successCountElement.innerHTML = "<span class='success-text'>업그레이드 성공!</span>";
                     enhanceLevel = 0; // 강화 레벨 초기화
                     enableDexItem('dexItem4'); // 핵 아이템 활성화
                 } else if (document.getElementById("itemImage").src.includes("nuclear.jpg")) { // 핵이 +5로 강화됐을 때 풍선으로 바뀌고 강화하기 버튼 비활성화 및 텍스트 변경
                     document.getElementById("itemImage").src = "balloon.jpg";
                     document.getElementById("itemName").innerHTML = "풍선";
                     enhanceButton.disabled = true;
-                    enhanceButton.innerHTML = "축하합니다";
+                    successCountElement.innerHTML = "<span class='success-text'>축하합니다!</span>";
                     enhanceLevel = 0; // 강화 레벨 초기화
                     // 이 부분을 주석 처리하여 텍스트가 사라지지 않도록 합니다.
                     // successRateElement.textContent = " ";
