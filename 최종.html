@@ -8,9 +8,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Nanum+Gothic+Coding&family=Noto+Sans+KR:wght@100..900&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Nanum+Gothic+Coding&family=Noto+Sans+KR:wght@100..900&display=swap" rel="stylesheet">
 
     <style>
         .nav {
@@ -80,12 +78,12 @@
             background-size: 2000px 1500px;
             background-repeat: no-repeat;
             background-position: top;
-            background-color: rgb(76, 166, 202);
-            margin-top: 1000px;
-
         }
 
-
+        body {
+            background-color: rgb(203, 213, 218);
+            margin-top: 1000px;
+        }
 
         /*-----------------------------------------여기서 부터 컨테이너-----------------------------*/
         .container,
@@ -96,16 +94,25 @@
             padding: 40px;
             margin-bottom: 20px;
             margin-top: -750px;
-        }
+        }   
+        .item-image-container {
+        position: relative;
+        width: 30%; /* width를 절반으로 설정 */
+        padding-top: 30%; /* height를 절반으로 설정 */
+        overflow: hidden;
+        border-radius: 10px;
+        background-color: aliceblue;
+        margin: 0 auto;
+        max-height: calc(100vh - 80px); /* container height보다 작게 설정 */
+    }
 
         .item-image {
-            max-width: 400px;
-            max-height: 500px;
-            width: 40%;
-            height: 400px;
-            background-color: aliceblue;
-            overflow: hidden;
-        }
+        width: 250px; /* 고정 width 설정 */
+        height: 250px; /* 고정 height 설정 */
+        object-fit: contain; /* 전체 이미지를 보이게 설정 */
+        margin: 0 auto; /* 중앙 정렬 */
+        display: block; /* 중앙 정렬을 위해 display: block 설정 */
+    }
 
         .item-title {
             margin-left: 230px;
@@ -337,10 +344,11 @@
             padding: 10px;
             border: 1px solid #ddd;
             margin: 10px;
-            width: 100px;
-            height: 150px;
+            width: 200px;
+            height: 300px;
             pointer-events: none;
             opacity: 0.5;
+            transition: all 0.3s ease;
         }
 
         .dex-item img {
@@ -349,8 +357,8 @@
         }
 
         .dex-item h3 {
-            margin: 0;
-            text-align: center;
+            margin-top: auto;
+            margin-bottom: auto;
         }
 
         .dex-item.active {
@@ -361,6 +369,7 @@
 
         .dex-item.active:hover {
             background-color: #f0f0f0;
+            transform: scale(1.05);
         }
 
         .dex-details {
@@ -375,27 +384,10 @@
             max-width: 100%;
             height: auto;
         }
-
-        .header {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 3000;
-            background-color: #ffffff;
-            /* 헤더 배경색을 설정하세요 */
-            padding: 10px 0;
-            /* 헤더 내부 여백을 조정하세요 */
-            text-align: center;
-            /* 텍스트를 가운데 정렬하세요 */
-
-            /* 다른 요소 위에 헤더가 나타나도록 zIndex를 설정하세요 */
-        }
     </style>
 </head>
 
 <body>
-    <div class="header">강화 시뮬레이션</div>
     <div class="nav">
         <a href="#" id="GG" onclick="goToEnhancePage()">강화하기</a>
         <a href="#" id="DD" onclick="goToDexPage()">도감</a>
@@ -706,7 +698,7 @@
             // 코멘트 목록 표시
             var commentsList = document.getElementById('comments-list');
             commentsList.innerHTML = '';
-            comments.forEach(function (comment, index) {
+            comments.forEach(function(comment, index) {
                 var li = document.createElement('li');
 
                 // 별점을 추가
@@ -751,7 +743,7 @@
 
         // 평균 별점 계산하는 함수
         function calculateAverageRating() {
-            var totalRating = ratings.reduce(function (acc, rating) {
+            var totalRating = ratings.reduce(function(acc, rating) {
                 return acc + parseInt(rating);
             }, 0);
             return totalRating / ratings.length;
