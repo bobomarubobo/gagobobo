@@ -8,9 +8,28 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Nanum+Gothic+Coding&family=Noto+Sans+KR:wght@100..900&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Nanum+Gothic+Coding&family=Noto+Sans+KR:wght@100..900&display=swap"
+        rel="stylesheet">
 
     <style>
+        /* 공통 버튼 스타일 */
+        button,
+        .btn-primary {
+            padding: 10px 20px;
+            background-color: blue;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        /* 버튼 호버 스타일 */
+        button:hover,
+        .btn-primary:hover {
+            background-color: rgb(22, 22, 97);
+        }
         .nav {
             display: flex;
             justify-content: center;
@@ -20,14 +39,14 @@
 
         .nav a {
             padding: 10px 20px;
-            background-color: #1872d3;
+            background-color: blue;
             color: rgb(0, 0, 0);
             text-decoration: none;
             border-radius: 5px;
         }
 
         .nav a:hover {
-            background-color: #0056b3;
+            background-color: rgb(22, 22, 97);
         }
 
         #GG {
@@ -40,7 +59,8 @@
             text-emphasis: none;
             text-align: center;
             line-height: 50px;
-            background-color: #ffffff;
+            background-color: blue;
+            color: white;
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             text-decoration: none;
@@ -60,7 +80,8 @@
             text-emphasis: none;
             text-align: center;
             line-height: 50px;
-            background-color: #ffffff;
+            background-color: blue;
+            color: white;
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             text-decoration: none;
@@ -81,7 +102,7 @@
         }
 
         body {
-            background-color: rgb(203, 213, 218);
+            background-color: #e9eef0;
             margin-top: 1000px;
         }
 
@@ -94,25 +115,34 @@
             padding: 40px;
             margin-bottom: 20px;
             margin-top: -750px;
-        }   
+        }
+
         .item-image-container {
-        position: relative;
-        width: 30%; /* width를 절반으로 설정 */
-        padding-top: 30%; /* height를 절반으로 설정 */
-        overflow: hidden;
-        border-radius: 10px;
-        background-color: aliceblue;
-        margin: 0 auto;
-        max-height: calc(100vh - 80px); /* container height보다 작게 설정 */
-    }
+            position: relative;
+            width: 30%;
+            /* width를 절반으로 설정 */
+            padding-top: 30%;
+            /* height를 절반으로 설정 */
+            overflow: hidden;
+            border-radius: 10px;
+            background-color: aliceblue;
+            margin: 0 auto;
+            max-height: calc(100vh - 80px);
+            /* container height보다 작게 설정 */
+        }
 
         .item-image {
-        width: 250px; /* 고정 width 설정 */
-        height: 250px; /* 고정 height 설정 */
-        object-fit: contain; /* 전체 이미지를 보이게 설정 */
-        margin: 0 auto; /* 중앙 정렬 */
-        display: block; /* 중앙 정렬을 위해 display: block 설정 */
-    }
+            width: 250px;
+            /* 고정 width 설정 */
+            height: 250px;
+            /* 고정 height 설정 */
+            object-fit: contain;
+            /* 전체 이미지를 보이게 설정 */
+            margin: 0 auto;
+            /* 중앙 정렬 */
+            display: block;
+            /* 중앙 정렬을 위해 display: block 설정 */
+        }
 
         .item-title {
             margin-left: 230px;
@@ -154,11 +184,11 @@
         }
 
         .success-text {
-            color: green;
+            color: blue;
         }
 
         .failure-text {
-            color: red;
+            color: rgb(201, 61, 115);
         }
 
         /* star.css */
@@ -246,7 +276,7 @@
         }
 
         .rating-form-table textarea {
-            width: calc(100% - 10px);
+            width: 100%;
             padding: 10px;
             margin: 5px 0;
             border: 1px solid #ccc;
@@ -262,7 +292,7 @@
 
         .rating-form-table button[type="button"] {
             padding: 10px 20px;
-            background-color: #28a745;
+            background-color: blue;
             color: white;
             border: none;
             cursor: pointer;
@@ -271,7 +301,7 @@
         }
 
         .rating-form-table button[type="button"]:hover {
-            background-color: #218838;
+            background-color: rgb(22, 22, 97);
         }
 
         #comments-list {
@@ -307,9 +337,11 @@
             margin-bottom: 10px;
         }
 
+        
+
         .delete-comment {
             padding: 5px 10px;
-            background-color: #dc3545;
+            background-color: blue;
             color: white;
             border: none;
             cursor: pointer;
@@ -318,12 +350,12 @@
         }
 
         .delete-comment:hover {
-            background-color: #c82333;
+            background-color: rgb(22, 22, 97);
             transform: scale(1.1);
         }
 
         .delete-comment:active {
-            background-color: #bd2130;
+            background-color: rgb(22, 22, 97);
             transform: scale(1);
         }
 
@@ -389,7 +421,7 @@
 
 <body>
     <div class="nav">
-        <a href="#" id="GG" onclick="goToEnhancePage()">강화하기</a>
+        <a href="#" id="GG" onclick="goToEnhancePage()">강화</a>
         <a href="#" id="DD" onclick="goToDexPage()">도감</a>
     </div>
     <div class="container" id="container">
@@ -398,7 +430,7 @@
                 <img src="sword.jpg" alt="강화 아이템" class="item-image" id="itemImage">
             </div>
             <div class="col-md-6">
-                <h1 class="item-title" id="itemName">검<span id="enhanceLevel">+0</span></h1>
+                <h1 class="item-title" id="itemName">검<span id="enhanceLevel">&nbsp;(+0)</span></h1>
                 <p class="item-description">
                     강화 아이템에 대한 설명이 들어갈 부분입니다. 이 부분은 원하는 내용으로 수정할 수 있습니다.
                 </p>
@@ -580,14 +612,14 @@
                     // 성공할 때
                     successCount++;
                     enhanceLevel++; // 강화 레벨 증가
-                    successCountElement.innerHTML = "<span class='success-text'>성공</span>";
-                    enhanceLevelElement.textContent = "+" + enhanceLevel; // 강화 레벨 표시 업데이트
+                    successCountElement.innerHTML = "<span class='success-text'>&nbsp;성공</span>";
+                    enhanceLevelElement.textContent = " (+" + enhanceLevel + ")"; // 강화 레벨 표시 업데이트
                 } else {
                     // 실패할 때
                     successCount = 0; // 숫자 초기화
                     enhanceLevel = 0; // 강화 레벨 초기화
-                    successCountElement.innerHTML = "<span class='failure-text'>실패</span>";
-                    enhanceLevelElement.textContent = "+" + enhanceLevel; // 강화 레벨 표시 업데이트
+                    successCountElement.innerHTML = "<span class='failure-text'>&nbsp;실패</span>";
+                    enhanceLevelElement.textContent = " (+" + enhanceLevel + ")"; // 강화 레벨 표시 업데이트
                 }
             } else {
                 if (document.getElementById("itemImage").src.includes("sword.jpg")) { // 검이 +5로 강화됐을 때 총으로 바뀌어서 강화 단계를 다시 초기화
@@ -618,14 +650,14 @@
                     failureRate = 0.5; // 실패 확률 변경
                     successRateElement.textContent = "성공 확률: 50%";
                     failureRateElement.textContent = "실패 확률: 50%";
-                    successCountElement.innerHTML = "<span class='success-text'>업그레이드 성공!</span>";
+                    successCountElement.innerHTML = "<span class='success-text'>&nbsp;업그레이드 성공!</span>";
                     enhanceLevel = 0; // 강화 레벨 초기화
                     enableDexItem('dexItem4'); // 핵 아이템 활성화
                 } else if (document.getElementById("itemImage").src.includes("nuclear.jpg")) { // 핵이 +5로 강화됐을 때 풍선으로 바뀌고 강화하기 버튼 비활성화 및 텍스트 변경
                     document.getElementById("itemImage").src = "balloon.jpg";
                     document.getElementById("itemName").innerHTML = "풍선";
                     enhanceButton.disabled = true;
-                    successCountElement.innerHTML = "<span class='success-text'>축하합니다!</span>";
+                    successCountElement.innerHTML = "<span class='success-text'>&nbsp;축하합니다!</span>";
                     enhanceLevel = 0; // 강화 레벨 초기화
                     // 이 부분을 주석 처리하여 텍스트가 사라지지 않도록 합니다.
                     // successRateElement.textContent = " ";
@@ -698,7 +730,7 @@
             // 코멘트 목록 표시
             var commentsList = document.getElementById('comments-list');
             commentsList.innerHTML = '';
-            comments.forEach(function(comment, index) {
+            comments.forEach(function (comment, index) {
                 var li = document.createElement('li');
 
                 // 별점을 추가
@@ -743,7 +775,7 @@
 
         // 평균 별점 계산하는 함수
         function calculateAverageRating() {
-            var totalRating = ratings.reduce(function(acc, rating) {
+            var totalRating = ratings.reduce(function (acc, rating) {
                 return acc + parseInt(rating);
             }, 0);
             return totalRating / ratings.length;
