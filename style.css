@@ -1,0 +1,412 @@
+.header {
+    padding: 20px;
+    background-color: rgb(249, 249, 249);
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    margin-top: 20px;
+    text-align: center;
+    /* 텍스트 중앙 정렬 */
+    font-family: "Noto Sans KR", sans-serif;
+    font-size: x-large;
+    font-weight: bold;
+    top: 0;
+}
+
+/* 공통 버튼 스타일 */
+button,
+.btn-primary {
+    padding: 10px 20px;
+    background-color: blue;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+/* 버튼 호버 스타일 */
+button:hover,
+.btn-primary:hover {
+    background-color: rgb(22, 22, 97);
+}
+
+.nav {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    /* 버튼 위로 간격 추가 */
+}
+
+.nav a {
+    padding: 10px 20px;
+    background-color: blue;
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.nav a:hover {
+    background-color: rgb(22, 22, 97);
+}
+
+#GG {
+    width: 200px;
+    height: 80px;
+    margin: 20px 30px 20px 30px;
+    margin-left: 10px;
+    /* 마진 레프트*/
+    text-emphasis: none;
+    text-align: center;
+    line-height: 50px;
+    background-color: blue;
+    color: white;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-decoration: none;
+    line-height: 60px;
+    font-family: "Noto Sans KR", sans-serif;
+    font-size: x-large;
+    font-weight: bold;
+}
+
+#DD {
+    width: 200px;
+    height: 80px;
+    margin: 20px 40px 20px 40px;
+    margin-left: 120px;
+    /* 마진 레프트*/
+    text-emphasis: none;
+    text-align: center;
+    line-height: 50px;
+    background-color: blue;
+    color: white;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-decoration: none;
+    line-height: 60px;
+    font-family: "Noto Sans KR", sans-serif;
+    font-size: x-large;
+    font-weight: bold;
+}
+
+body {
+    font-family: "Noto Sans KR", sans-serif;
+    font-size: x-large;
+    font-weight: bold;
+    background-image: url('./mainImg.jpg');
+    background-size: 2000px 1500px;
+    background-repeat: no-repeat;
+    background-position: top;
+}
+
+body {
+    background-color: rgb(249, 249, 249);
+}
+
+/*-----------------------------------------여기서 부터 컨테이너-----------------------------*/
+.container,
+#dexPageId {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    margin-bottom: 20px;
+}
+
+.item-image-container {
+    position: relative;
+    width: 30%;
+    /* width를 절반으로 설정 */
+    padding-top: 30%;
+    /* height를 절반으로 설정 */
+    overflow: hidden;
+    border-radius: 10px;
+    background-color: rgb(249, 249, 249);
+    margin: 0 auto;
+    max-height: calc(100vh - 80px);
+    /* container height보다 작게 설정 */
+}
+
+.item-image {
+    width: 250px;
+    /* 고정 width 설정 */
+    height: 250px;
+    /* 고정 height 설정 */
+    object-fit: contain;
+    /* 전체 이미지를 보이게 설정 */
+    margin: 0 auto;
+    /* 중앙 정렬 */
+    display: block;
+    /* 중앙 정렬을 위해 display: block 설정 */
+}
+
+.item-title {
+    margin-left: 230px;
+    font-family: "Noto Sans KR", sans-serif;
+    font-size: x-large;
+    font-weight: bold;
+}
+
+#enchanceRate {
+    margin-left: 200px;
+    font-family: "Noto Sans KR", sans-serif;
+    font-size: x-large;
+    font-weight: bold;
+}
+
+#successRate {
+    margin-left: 190px;
+    font-family: "Noto Sans KR", sans-serif;
+    font-size: large;
+}
+
+#failureRate {
+    margin-left: 190px;
+    font-family: "Noto Sans KR", sans-serif;
+    font-size: large;
+}
+
+#enhanceButton {
+    margin-left: 198px;
+    font-family: "Noto Sans KR", sans-serif;
+    font-size: x-large;
+    font-weight: bold;
+}
+
+.pp {
+    flex-direction: column;
+    margin-left: 430px;
+}
+
+.success-text {
+    color: blue;
+}
+
+.failure-text {
+    color: rgb(201, 61, 115);
+}
+
+/* star.css */
+#myform fieldset {
+    display: flex;
+    justify-content: center;
+    direction: rtl;
+    /* 이모지 순서 반전 */
+    border: 0;
+    /* 필드셋 테두리 제거 */
+    text-align: center;
+}
+
+#myform fieldset legend {
+    text-align: center;
+}
+
+#myform input[type=radio] {
+    display: none;
+    /* 라디오박스 감춤 */
+}
+
+#myform label {
+    font-size: 1em;
+    /* 이모지 크기 */
+    color: transparent;
+    /* 기존 이모지 컬러 제거 */
+    text-shadow: 0 0 0 #f0f0f0;
+    /* 새 이모지 색상 부여 */
+}
+
+#myform label:hover {
+    text-shadow: 0 0 0 #FFC83D;
+    /* 마우스 호버 */
+}
+
+#myform label:hover~label {
+    text-shadow: 0 0 0 #FFC83D;
+    /* 마우스 호버 뒤에오는 이모지들 */
+}
+
+#myform input[type=radio]:checked~label {
+    text-shadow: 0 0 0 #FFC83D;
+    /* 마우스 클릭 체크 */
+}
+
+.footer {
+    padding: 20px;
+    background-color: rgb(249, 249, 249);
+    border: 1px solid #ccc;
+    /* 테두리 스타일 추가 */
+    border-radius: 10px;
+    /* 테두리 둥글게 만듦 */
+}
+
+/* 평균 별점을 중앙에 정렬하는 CSS */
+#average-rating {
+    text-align: center;
+}
+
+/* 평가 및 리뷰 제목 스타일 */
+.footer h3 {
+    font-size: 29px;
+    color: #333;
+    margin-bottom: 10px;
+    margin-left: 46%;
+    font-family: "Noto Sans KR", sans-serif;
+    font-weight: bold;
+}
+
+/* 표의 크기 */
+.rating-form-table {
+    width: 100%;
+}
+
+/* 이름 및 비밀번호 입력란 스타일 */
+.rating-form-table input[type="text"] {
+    width: 25%;
+    padding: 8px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.rating-form-table textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    resize: none;
+    height: 100px;
+}
+
+.rating-form-table textarea {
+    height: 100px;
+}
+
+.rating-form-table button[type="button"] {
+    padding: 10px 20px;
+    background-color: blue;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.rating-form-table button[type="button"]:hover {
+    background-color: rgb(22, 22, 97);
+}
+
+#comments-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+}
+
+#comments-list li {
+    border: 1px solid #ccc;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+}
+
+#comments-list li span.comment-name {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+}
+
+#comments-list li span.comment-time {
+    color: #666;
+    font-size: 12px;
+    display: block;
+    margin-bottom: 10px;
+}
+
+#comments-list li span.comment-text {
+    display: block;
+    margin-bottom: 10px;
+}
+
+
+
+.delete-comment {
+    padding: 5px 10px;
+    background-color: blue;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.delete-comment:hover {
+    background-color: rgb(22, 22, 97);
+    transform: scale(1.1);
+}
+
+.delete-comment:active {
+    background-color: rgb(22, 22, 97);
+    transform: scale(1);
+}
+
+/* 도감 페이지 스타일 */
+#dexPageId {
+    display: none;
+}
+
+.dex-container {
+    display: flex;
+    justify-content: center;
+}
+
+.dex-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    border: 1px solid #ddd;
+    margin: 10px;
+    width: 200px;
+    height: 300px;
+    pointer-events: none;
+    opacity: 0.5;
+    transition: all 0.3s ease;
+}
+
+.dex-item img {
+    width: 100%;
+    height: auto;
+}
+
+.dex-item h3 {
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.dex-item.active {
+    pointer-events: auto;
+    opacity: 1;
+    cursor: pointer;
+}
+
+.dex-item.active:hover {
+    background-color: #f0f0f0;
+    transform: scale(1.05);
+}
+
+.dex-details {
+    display: none;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+.dex-details img {
+    max-width: 100%;
+    height: auto;
+}
