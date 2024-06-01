@@ -11,426 +11,18 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Nanum+Gothic+Coding&family=Noto+Sans+KR:wght@100..900&display=swap"
         rel="stylesheet">
+    <link rel="stylesheet" href="style.css" id="styleSheetLink">
     
-
-    <style>
-        .header {
-            padding: 20px;
-            background-color: rgb(249, 249, 249);
-            border: 1px solid #ccc;
-            border-radius: 10px;
-            margin-top: 20px;
-            text-align: center;
-            /* 텍스트 중앙 정렬 */
-            font-family: "Noto Sans KR", sans-serif;
-            font-size: x-large;
-            font-weight: bold;
-            top: 0;
-        }
-
-        /* 공통 버튼 스타일 */
-        button,
-        .btn-primary {
-            padding: 10px 20px;
-            background-color: blue;
-            color: white;
-            border: none;
-            cursor: pointer;
-            border-radius: 5px;
-            transition: background-color 0.3s ease;
-        }
-
-        /* 버튼 호버 스타일 */
-        button:hover,
-        .btn-primary:hover {
-            background-color: rgb(22, 22, 97);
-        }
-
-        .nav {
-            display: flex;
-            justify-content: center;
-            margin-top: 20px;
-            /* 버튼 위로 간격 추가 */
-        }
-
-        .nav a {
-            padding: 10px 20px;
-            background-color: blue;
-            color: rgb(0, 0, 0);
-            text-decoration: none;
-            border-radius: 5px;
-        }
-
-        .nav a:hover {
-            background-color: rgb(22, 22, 97);
-        }
-
-        #GG {
-            width: 200px;
-            height: 80px;
-            margin: 20px 30px 20px 30px;
-            margin-left: 10px;
-            /* 마진 레프트*/
-            text-emphasis: none;
-            text-align: center;
-            line-height: 50px;
-            background-color: blue;
-            color: white;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            text-decoration: none;
-            line-height: 60px;
-            font-family: "Noto Sans KR", sans-serif;
-            font-size: x-large;
-            font-weight: bold;
-        }
-
-        #DD {
-            width: 200px;
-            height: 80px;
-            margin: 20px 40px 20px 40px;
-            margin-left: 120px;
-            /* 마진 레프트*/
-            text-emphasis: none;
-            text-align: center;
-            line-height: 50px;
-            background-color: blue;
-            color: white;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            text-decoration: none;
-            line-height: 60px;
-            font-family: "Noto Sans KR", sans-serif;
-            font-size: x-large;
-            font-weight: bold;
-        }
-
-        body {
-            font-family: "Noto Sans KR", sans-serif;
-            font-size: x-large;
-            font-weight: bold;
-            background-image: url('./mainImg.jpg');
-            background-size: 2000px 1500px;
-            background-repeat: no-repeat;
-            background-position: top;
-        }
-
-        body {
-            background-color: rgb(249, 249, 249);
-        }
-
-        /*-----------------------------------------여기서 부터 컨테이너-----------------------------*/
-        .container,
-        #dexPageId {
-            background-color: #ffffff;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            padding: 40px;
-            margin-bottom: 20px;
-        }
-
-        .item-image-container {
-            position: relative;
-            width: 30%;
-            /* width를 절반으로 설정 */
-            padding-top: 30%;
-            /* height를 절반으로 설정 */
-            overflow: hidden;
-            border-radius: 10px;
-            background-color: rgb(249, 249, 249);
-            margin: 0 auto;
-            max-height: calc(100vh - 80px);
-            /* container height보다 작게 설정 */
-        }
-
-        .item-image {
-            width: 250px;
-            /* 고정 width 설정 */
-            height: 250px;
-            /* 고정 height 설정 */
-            object-fit: contain;
-            /* 전체 이미지를 보이게 설정 */
-            margin: 0 auto;
-            /* 중앙 정렬 */
-            display: block;
-            /* 중앙 정렬을 위해 display: block 설정 */
-        }
-
-        .item-title {
-            margin-left: 230px;
-            font-family: "Noto Sans KR", sans-serif;
-            font-size: x-large;
-            font-weight: bold;
-        }
-
-        #enchanceRate {
-            margin-left: 200px;
-            font-family: "Noto Sans KR", sans-serif;
-            font-size: x-large;
-            font-weight: bold;
-        }
-
-        #successRate {
-            margin-left: 190px;
-            font-family: "Noto Sans KR", sans-serif;
-            font-size: large;
-        }
-
-        #failureRate {
-            margin-left: 190px;
-            font-family: "Noto Sans KR", sans-serif;
-            font-size: large;
-        }
-
-        #enhanceButton {
-            margin-left: 198px;
-            font-family: "Noto Sans KR", sans-serif;
-            font-size: x-large;
-            font-weight: bold;
-        }
-
-        .pp {
-            flex-direction: column;
-            margin-left: 430px;
-        }
-
-        .success-text {
-            color: blue;
-        }
-
-        .failure-text {
-            color: rgb(201, 61, 115);
-        }
-
-        /* star.css */
-        #myform fieldset {
-            display: flex;
-            justify-content: center;
-            direction: rtl;
-            /* 이모지 순서 반전 */
-            border: 0;
-            /* 필드셋 테두리 제거 */
-            text-align: center;
-        }
-
-        #myform fieldset legend {
-            text-align: center;
-        }
-
-        #myform input[type=radio] {
-            display: none;
-            /* 라디오박스 감춤 */
-        }
-
-        #myform label {
-            font-size: 1em;
-            /* 이모지 크기 */
-            color: transparent;
-            /* 기존 이모지 컬러 제거 */
-            text-shadow: 0 0 0 #f0f0f0;
-            /* 새 이모지 색상 부여 */
-        }
-
-        #myform label:hover {
-            text-shadow: 0 0 0 #FFC83D;
-            /* 마우스 호버 */
-        }
-
-        #myform label:hover~label {
-            text-shadow: 0 0 0 #FFC83D;
-            /* 마우스 호버 뒤에오는 이모지들 */
-        }
-
-        #myform input[type=radio]:checked~label {
-            text-shadow: 0 0 0 #FFC83D;
-            /* 마우스 클릭 체크 */
-        }
-
-        .footer {
-            padding: 20px;
-            background-color: rgb(249, 249, 249);
-            border: 1px solid #ccc;
-            /* 테두리 스타일 추가 */
-            border-radius: 10px;
-            /* 테두리 둥글게 만듦 */
-        }
-
-        /* 평균 별점을 중앙에 정렬하는 CSS */
-        #average-rating {
-            text-align: center;
-        }
-
-        /* 평가 및 리뷰 제목 스타일 */
-        .footer h3 {
-            font-size: 29px;
-            color: #333;
-            margin-bottom: 10px;
-            margin-left: 46%;
-            font-family: "Noto Sans KR", sans-serif;
-            font-weight: bold;
-        }
-
-        /* 표의 크기 */
-        .rating-form-table {
-            width: 100%;
-        }
-
-        /* 이름 및 비밀번호 입력란 스타일 */
-        .rating-form-table input[type="text"] {
-            width: 25%;
-            padding: 8px;
-            margin: 5px 0;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            box-sizing: border-box;
-        }
-
-        .rating-form-table textarea {
-            width: 100%;
-            padding: 10px;
-            margin: 5px 0;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            box-sizing: border-box;
-            resize: none;
-            height: 100px;
-        }
-
-        .rating-form-table textarea {
-            height: 100px;
-        }
-
-        .rating-form-table button[type="button"] {
-            padding: 10px 20px;
-            background-color: blue;
-            color: white;
-            border: none;
-            cursor: pointer;
-            border-radius: 5px;
-            transition: background-color 0.3s ease;
-        }
-
-        .rating-form-table button[type="button"]:hover {
-            background-color: rgb(22, 22, 97);
-        }
-
-        #comments-list {
-            list-style: none;
-            padding: 0;
-            margin-top: 20px;
-        }
-
-        #comments-list li {
-            border: 1px solid #ccc;
-            padding: 15px;
-            margin-bottom: 10px;
-            border-radius: 5px;
-            background-color: #fff;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
-        }
-
-        #comments-list li span.comment-name {
-            font-weight: bold;
-            display: block;
-            margin-bottom: 5px;
-        }
-
-        #comments-list li span.comment-time {
-            color: #666;
-            font-size: 12px;
-            display: block;
-            margin-bottom: 10px;
-        }
-
-        #comments-list li span.comment-text {
-            display: block;
-            margin-bottom: 10px;
-        }
-
-
-
-        .delete-comment {
-            padding: 5px 10px;
-            background-color: blue;
-            color: white;
-            border: none;
-            cursor: pointer;
-            border-radius: 5px;
-            transition: background-color 0.3s ease, transform 0.3s ease;
-        }
-
-        .delete-comment:hover {
-            background-color: rgb(22, 22, 97);
-            transform: scale(1.1);
-        }
-
-        .delete-comment:active {
-            background-color: rgb(22, 22, 97);
-            transform: scale(1);
-        }
-
-        /* 도감 페이지 스타일 */
-        #dexPageId {
-            display: none;
-        }
-
-        .dex-container {
-            display: flex;
-            justify-content: center;
-        }
-
-        .dex-item {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 10px;
-            border: 1px solid #ddd;
-            margin: 10px;
-            width: 200px;
-            height: 300px;
-            pointer-events: none;
-            opacity: 0.5;
-            transition: all 0.3s ease;
-        }
-
-        .dex-item img {
-            width: 100%;
-            height: auto;
-        }
-
-        .dex-item h3 {
-            margin-top: auto;
-            margin-bottom: auto;
-        }
-
-        .dex-item.active {
-            pointer-events: auto;
-            opacity: 1;
-            cursor: pointer;
-        }
-
-        .dex-item.active:hover {
-            background-color: #f0f0f0;
-            transform: scale(1.05);
-        }
-
-        .dex-details {
-            display: none;
-            padding: 20px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            margin-top: 20px;
-        }
-
-        .dex-details img {
-            max-width: 100%;
-            height: auto;
-        }
-    </style>
 </head>
 
 <body>
-    <div class="header">나는 준일하다</div>
+    <div class="header">나무 몽둥이 강화</div>
+    <div class="containerbutton d-flex justify-content-between align-items-center">
+        <div> <!-- 왼쪽에 공간을 만들기 위한 빈 div -->
+            <!-- 여기에 내용을 추가할 수 있습니다 -->
+        </div>
+        <button class="btn btn-primary" type="button" onclick="toggleStyle()">Change Style</button> <!-- 버튼 이동 -->
+    </div>
     <div class="nav">
         <a href="#" id="GG" onclick="goToEnhancePage()">강화</a>
         <a href="#" id="DD" onclick="goToDexPage()">도감</a>
@@ -545,145 +137,156 @@
     </div>
     <script src="star.js"></script>
     <script>
+        function toggleStyle() {
+            var linkElement = document.getElementById("styleSheetLink");
+            var currentHref = linkElement.getAttribute("href");
+
+            if (currentHref === "style.css") {
+                linkElement.setAttribute("href", "style2.css");
+            } else {
+                linkElement.setAttribute("href", "style.css");
+            }
+        }
+
         function goToDexPage() {
-    hideCurrentPage();
-    showDexPage();5
-}
-
-function goToEnhancePage() {
-    hideDexPage();
-    showCurrentPage();
-}
-
-function hideCurrentPage() {
-    var currentPage = document.getElementById('container');
-    currentPage.style.display = 'none';
-}
-
-function showDexPage() {
-    var dexPage = document.getElementById('dexPageId');
-    dexPage.style.display = 'block';
-}
-
-function hideDexPage() {
-    var dexPage = document.getElementById('dexPageId');
-    dexPage.style.display = 'none';
-}
-
-function showCurrentPage() {
-    var currentPage = document.getElementById('container');
-    currentPage.style.display = 'block';
-}
-
-function showDexDetails(itemId) {
-    // 모든 상세 정보 요소 숨기기
-    var details = document.getElementsByClassName('dex-details');
-    for (var i = 0; i < details.length; i++) {
-        details[i].style.display = 'none';
-    }
-    // 클릭한 항목의 상세 정보 보이기
-    var itemDetails = document.getElementById(itemId);
-    if (itemDetails) {
-        itemDetails.style.display = 'block';
-    }
-}
-
-function enableDexItem(itemId) {
-    var dexItem = document.getElementById(itemId);
-    dexItem.classList.add('active');
-}
-
-// 코멘트 삭제 함수
-function deleteComment(index) {
-    // 해당 인덱스의 댓글 삭제
-    comments.splice(index, 1);
-    // 삭제된 댓글을 제외한 나머지 댓글을 다시 표시
-    displayRatingsAndComments();
-    // 댓글 수 업데이트
-    updateCommentCount();
-    // 평균 별점 계산 및 표시
-    calculateAndDisplayAverageRating();
-}
-
-var successCount = 0;
-var successRate = 0.8; // 초기 성공 확률
-var failureRate = 0.2; // 초기 실패 확률
-var enhanceLevel = 0; // 강화 레벨 변수 추가
-var attemptsCount = 0; // 강화 시도 횟수 변수 추가
-
-function enhance() {
-    var random = Math.random(); // 0과 1 사이의 랜덤한 숫자 생성
-    var successCountElement = document.getElementById("successCount");
-    var successRateElement = document.getElementById("successRate");
-    var failureRateElement = document.getElementById("failureRate");
-    var enhanceButton = document.getElementById("enhanceButton");
-    var enchanceRateElement = document.getElementById("enchanceRate")
-    var enhanceLevelElement = document.getElementById("enhanceLevel"); // 강화 레벨 표시 요소 추가
-    var attemptsCountElement = document.getElementById("attemptsCount"); // 강화 시도 횟수 표시 요소 추가
-
-    attemptsCount++; // 강화 시도 횟수 증가
-    attemptsCountElement.textContent = attemptsCount; // 강화 시도 횟수 표시 업데이트
-    
-    if (successCount < 5) {
-        if (random < successRate) {
-            // 성공할 때
-            successCount++;
-            enhanceLevel++; // 강화 레벨 증가
-            successCountElement.innerHTML = "<span class='success-text'>&nbsp;성공</span>";
-            enhanceLevelElement.textContent = " (+" + enhanceLevel + ")"; // 강화 레벨 표시 업데이트
-        } else {
-            // 실패할 때
-            successCount = 0; // 숫자 초기화
-            enhanceLevel = 0; // 강화 레벨 초기화
-            successCountElement.innerHTML = "<span class='failure-text'>&nbsp;실패</span>";
-            enhanceLevelElement.textContent = " (+" + enhanceLevel + ")"; // 강화 레벨 표시 업데이트
+            hideCurrentPage();
+            showDexPage(); 5
         }
-    } else {
-        if (document.getElementById("itemImage").src.includes("sword.jpg")) { // 검이 +5로 강화됐을 때 총으로 바뀌어서 강화 단계를 다시 초기화
-            document.getElementById("itemImage").src = "gun.jpg";
-            document.getElementById("itemName").innerHTML = "총 <span id='enhanceLevel'>+0</span>";
-            successRate = 0.7; // 성공 확률 변경
-            failureRate = 0.3; // 실패 확률 변경
-            successRateElement.textContent = "성공 확률: 70%";
-            failureRateElement.textContent = "실패 확률: 30%";
-            successCountElement.innerHTML = "<span class='success-text'>업그레이드 성공!</span>";
-            enhanceLevel = 0; // 강화 레벨 초기화
-            enableDexItem('dexItem2'); // 총 아이템 활성화
-        } else if (document.getElementById("itemImage").src.includes("gun.jpg")) {
-            // 총이 +5로 강화됐을 때 로켓으로 바뀌어서 강화 단계를 다시 초기화
-            document.getElementById("itemImage").src = "rocket.jpg";
-            document.getElementById("itemName").innerHTML = "로켓 <span id='enhanceLevel'>+0</span>";
-            successRate = 0.6; // 성공 확률 변경
-            failureRate = 0.4; // 실패 확률 변경
-            successRateElement.textContent = "성공 확률: 60%";
-            failureRateElement.textContent = "실패 확률: 40%";
-            successCountElement.innerHTML = "<span class='success-text'>업그레이드 성공!</span>";
-            enhanceLevel = 0; // 강화 레벨 초기화
-            enableDexItem('dexItem3'); // 로켓 아이템 활성화
-        } else if (document.getElementById("itemImage").src.includes("rocket.jpg")) { // 로켓이 +5로 강화됐을 때 핵으로 바뀌어서 강화 단계를 다시 초기화
-            document.getElementById("itemImage").src = "nuclear.jpg";
-            document.getElementById("itemName").innerHTML = "핵 <span id='enhanceLevel'>+0</span>";
-            successRate = 0.5; // 성공 확률 변경
-            failureRate = 0.5; // 실패 확률 변경
-            successRateElement.textContent = "성공 확률: 50%";
-            failureRateElement.textContent = "실패 확률: 50%";
-            successCountElement.innerHTML = "<span class='success-text'>&nbsp;업그레이드 성공!</span>";
-            enhanceLevel = 0; // 강화 레벨 초기화
-            enableDexItem('dexItem4'); // 핵 아이템 활성화
-        } else if (document.getElementById("itemImage").src.includes("nuclear.jpg")) { // 핵이 +5로 강화됐을 때 풍선으로 바뀌고 강화하기 버튼 비활성화 및 텍스트 변경
-            document.getElementById("itemImage").src = "balloon.jpg";
-            document.getElementById("itemName").innerHTML = "풍선";
-            enhanceButton.disabled = true;
-            successCountElement.innerHTML = "<span class='success-text'>&nbsp;축하합니다!</span>";
-            enhanceLevel = 0; // 강화 레벨 초기화
-            // 이 부분을 주석 처리하여 텍스트가 사라지지 않도록 합니다.
-            // successRateElement.textContent = " ";
-            // failureRateElement.textContent = " ";
-            // enchanceRateElement.textContent = " ";
+
+        function goToEnhancePage() {
+            hideDexPage();
+            showCurrentPage();
         }
-        successCount = 0; // 숫자 초기화
-    }
-}
+
+        function hideCurrentPage() {
+            var currentPage = document.getElementById('container');
+            currentPage.style.display = 'none';
+        }
+
+        function showDexPage() {
+            var dexPage = document.getElementById('dexPageId');
+            dexPage.style.display = 'block';
+        }
+
+        function hideDexPage() {
+            var dexPage = document.getElementById('dexPageId');
+            dexPage.style.display = 'none';
+        }
+
+        function showCurrentPage() {
+            var currentPage = document.getElementById('container');
+            currentPage.style.display = 'block';
+        }
+
+        function showDexDetails(itemId) {
+            // 모든 상세 정보 요소 숨기기
+            var details = document.getElementsByClassName('dex-details');
+            for (var i = 0; i < details.length; i++) {
+                details[i].style.display = 'none';
+            }
+            // 클릭한 항목의 상세 정보 보이기
+            var itemDetails = document.getElementById(itemId);
+            if (itemDetails) {
+                itemDetails.style.display = 'block';
+            }
+        }
+
+        function enableDexItem(itemId) {
+            var dexItem = document.getElementById(itemId);
+            dexItem.classList.add('active');
+        }
+
+        // 코멘트 삭제 함수
+        function deleteComment(index) {
+            // 해당 인덱스의 댓글 삭제
+            comments.splice(index, 1);
+            // 삭제된 댓글을 제외한 나머지 댓글을 다시 표시
+            displayRatingsAndComments();
+            // 댓글 수 업데이트
+            updateCommentCount();
+            // 평균 별점 계산 및 표시
+            calculateAndDisplayAverageRating();
+        }
+
+        var successCount = 0;
+        var successRate = 0.8; // 초기 성공 확률
+        var failureRate = 0.2; // 초기 실패 확률
+        var enhanceLevel = 0; // 강화 레벨 변수 추가
+        var attemptsCount = 0; // 강화 시도 횟수 변수 추가
+
+        function enhance() {
+            var random = Math.random(); // 0과 1 사이의 랜덤한 숫자 생성
+            var successCountElement = document.getElementById("successCount");
+            var successRateElement = document.getElementById("successRate");
+            var failureRateElement = document.getElementById("failureRate");
+            var enhanceButton = document.getElementById("enhanceButton");
+            var enchanceRateElement = document.getElementById("enchanceRate")
+            var enhanceLevelElement = document.getElementById("enhanceLevel"); // 강화 레벨 표시 요소 추가
+            var attemptsCountElement = document.getElementById("attemptsCount"); // 강화 시도 횟수 표시 요소 추가
+
+            attemptsCount++; // 강화 시도 횟수 증가
+            attemptsCountElement.textContent = attemptsCount; // 강화 시도 횟수 표시 업데이트
+
+            if (successCount < 5) {
+                if (random < successRate) {
+                    // 성공할 때
+                    successCount++;
+                    enhanceLevel++; // 강화 레벨 증가
+                    successCountElement.innerHTML = "<span class='success-text'>&nbsp;성공</span>";
+                    enhanceLevelElement.textContent = " (+" + enhanceLevel + ")"; // 강화 레벨 표시 업데이트
+                } else {
+                    // 실패할 때
+                    successCount = 0; // 숫자 초기화
+                    enhanceLevel = 0; // 강화 레벨 초기화
+                    successCountElement.innerHTML = "<span class='failure-text'>&nbsp;실패</span>";
+                    enhanceLevelElement.textContent = " (+" + enhanceLevel + ")"; // 강화 레벨 표시 업데이트
+                }
+            } else {
+                if (document.getElementById("itemImage").src.includes("sword.jpg")) { // 검이 +5로 강화됐을 때 총으로 바뀌어서 강화 단계를 다시 초기화
+                    document.getElementById("itemImage").src = "gun.jpg";
+                    document.getElementById("itemName").innerHTML = "총 <span id='enhanceLevel'>+0</span>";
+                    successRate = 0.7; // 성공 확률 변경
+                    failureRate = 0.3; // 실패 확률 변경
+                    successRateElement.textContent = "성공 확률: 70%";
+                    failureRateElement.textContent = "실패 확률: 30%";
+                    successCountElement.innerHTML = "<span class='success-text'>업그레이드 성공!</span>";
+                    enhanceLevel = 0; // 강화 레벨 초기화
+                    enableDexItem('dexItem2'); // 총 아이템 활성화
+                } else if (document.getElementById("itemImage").src.includes("gun.jpg")) {
+                    // 총이 +5로 강화됐을 때 로켓으로 바뀌어서 강화 단계를 다시 초기화
+                    document.getElementById("itemImage").src = "rocket.jpg";
+                    document.getElementById("itemName").innerHTML = "로켓 <span id='enhanceLevel'>+0</span>";
+                    successRate = 0.6; // 성공 확률 변경
+                    failureRate = 0.4; // 실패 확률 변경
+                    successRateElement.textContent = "성공 확률: 60%";
+                    failureRateElement.textContent = "실패 확률: 40%";
+                    successCountElement.innerHTML = "<span class='success-text'>업그레이드 성공!</span>";
+                    enhanceLevel = 0; // 강화 레벨 초기화
+                    enableDexItem('dexItem3'); // 로켓 아이템 활성화
+                } else if (document.getElementById("itemImage").src.includes("rocket.jpg")) { // 로켓이 +5로 강화됐을 때 핵으로 바뀌어서 강화 단계를 다시 초기화
+                    document.getElementById("itemImage").src = "nuclear.jpg";
+                    document.getElementById("itemName").innerHTML = "핵 <span id='enhanceLevel'>+0</span>";
+                    successRate = 0.5; // 성공 확률 변경
+                    failureRate = 0.5; // 실패 확률 변경
+                    successRateElement.textContent = "성공 확률: 50%";
+                    failureRateElement.textContent = "실패 확률: 50%";
+                    successCountElement.innerHTML = "<span class='success-text'>&nbsp;업그레이드 성공!</span>";
+                    enhanceLevel = 0; // 강화 레벨 초기화
+                    enableDexItem('dexItem4'); // 핵 아이템 활성화
+                } else if (document.getElementById("itemImage").src.includes("nuclear.jpg")) { // 핵이 +5로 강화됐을 때 풍선으로 바뀌고 강화하기 버튼 비활성화 및 텍스트 변경
+                    document.getElementById("itemImage").src = "balloon.jpg";
+                    document.getElementById("itemName").innerHTML = "풍선";
+                    enhanceButton.disabled = true;
+                    successCountElement.innerHTML = "<span class='success-text'>&nbsp;축하합니다!</span>";
+                    enhanceLevel = 0; // 강화 레벨 초기화
+                    // 이 부분을 주석 처리하여 텍스트가 사라지지 않도록 합니다.
+                    // successRateElement.textContent = " ";
+                    // failureRateElement.textContent = " ";
+                    // enchanceRateElement.textContent = " ";
+                }
+                successCount = 0; // 숫자 초기화
+            }
+        }
     </script>
 </body>
 
