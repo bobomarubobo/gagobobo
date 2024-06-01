@@ -11,8 +11,23 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Nanum+Gothic+Coding&family=Noto+Sans+KR:wght@100..900&display=swap"
         rel="stylesheet">
+    
 
     <style>
+        .header {
+            padding: 20px;
+            background-color: rgb(249, 249, 249);
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            margin-top: 20px;
+            text-align: center;
+            /* 텍스트 중앙 정렬 */
+            font-family: "Noto Sans KR", sans-serif;
+            font-size: x-large;
+            font-weight: bold;
+            top: 0;
+        }
+
         /* 공통 버튼 스타일 */
         button,
         .btn-primary {
@@ -30,6 +45,7 @@
         .btn-primary:hover {
             background-color: rgb(22, 22, 97);
         }
+
         .nav {
             display: flex;
             justify-content: center;
@@ -55,7 +71,6 @@
             margin: 20px 30px 20px 30px;
             margin-left: 10px;
             /* 마진 레프트*/
-            margin-top: -900px;
             text-emphasis: none;
             text-align: center;
             line-height: 50px;
@@ -76,7 +91,6 @@
             margin: 20px 40px 20px 40px;
             margin-left: 120px;
             /* 마진 레프트*/
-            margin-top: -900px;
             text-emphasis: none;
             text-align: center;
             line-height: 50px;
@@ -102,8 +116,7 @@
         }
 
         body {
-            background-color: #e9eef0;
-            margin-top: 1000px;
+            background-color: rgb(249, 249, 249);
         }
 
         /*-----------------------------------------여기서 부터 컨테이너-----------------------------*/
@@ -114,7 +127,6 @@
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             padding: 40px;
             margin-bottom: 20px;
-            margin-top: -750px;
         }
 
         .item-image-container {
@@ -125,7 +137,7 @@
             /* height를 절반으로 설정 */
             overflow: hidden;
             border-radius: 10px;
-            background-color: aliceblue;
+            background-color: rgb(249, 249, 249);
             margin: 0 auto;
             max-height: calc(100vh - 80px);
             /* container height보다 작게 설정 */
@@ -180,7 +192,6 @@
         .pp {
             flex-direction: column;
             margin-left: 430px;
-            margin-top: -450px;
         }
 
         .success-text {
@@ -242,7 +253,6 @@
             /* 테두리 스타일 추가 */
             border-radius: 10px;
             /* 테두리 둥글게 만듦 */
-            margin-top: 200px;
         }
 
         /* 평균 별점을 중앙에 정렬하는 CSS */
@@ -337,7 +347,7 @@
             margin-bottom: 10px;
         }
 
-        
+
 
         .delete-comment {
             padding: 5px 10px;
@@ -420,6 +430,7 @@
 </head>
 
 <body>
+    <div class="header">나는 준일하다</div>
     <div class="nav">
         <a href="#" id="GG" onclick="goToEnhancePage()">강화</a>
         <a href="#" id="DD" onclick="goToDexPage()">도감</a>
@@ -529,264 +540,8 @@
             <ul id="comments-list"></ul>
         </div>
     </div>
-
-    <script>
-        function goToDexPage() {
-            hideCurrentPage();
-            showDexPage();
-        }
-
-        function goToEnhancePage() {
-            hideDexPage();
-            showCurrentPage();
-        }
-
-        function hideCurrentPage() {
-            var currentPage = document.getElementById('container');
-            currentPage.style.display = 'none';
-        }
-
-        function showDexPage() {
-            var dexPage = document.getElementById('dexPageId');
-            dexPage.style.display = 'block';
-        }
-
-        function hideDexPage() {
-            var dexPage = document.getElementById('dexPageId');
-            dexPage.style.display = 'none';
-        }
-
-        function showCurrentPage() {
-            var currentPage = document.getElementById('container');
-            currentPage.style.display = 'block';
-        }
-
-        function showDexDetails(itemId) {
-            // 모든 상세 정보 요소 숨기기
-            var details = document.getElementsByClassName('dex-details');
-            for (var i = 0; i < details.length; i++) {
-                details[i].style.display = 'none';
-            }
-            // 클릭한 항목의 상세 정보 보이기
-            var itemDetails = document.getElementById(itemId);
-            if (itemDetails) {
-                itemDetails.style.display = 'block';
-            }
-        }
-
-        function enableDexItem(itemId) {
-            var dexItem = document.getElementById(itemId);
-            dexItem.classList.add('active');
-        }
-
-        // 코멘트 삭제 함수
-        function deleteComment(index) {
-            // 해당 인덱스의 댓글 삭제
-            comments.splice(index, 1);
-            // 삭제된 댓글을 제외한 나머지 댓글을 다시 표시
-            displayRatingsAndComments();
-            // 댓글 수 업데이트
-            updateCommentCount();
-            // 평균 별점 계산 및 표시
-            calculateAndDisplayAverageRating();
-        }
-    </script>
-
-    <script>
-        var successCount = 0;
-        var successRate = 0.8; // 초기 성공 확률
-        var failureRate = 0.2; // 초기 실패 확률
-        var enhanceLevel = 0; // 강화 레벨 변수 추가
-
-        function enhance() {
-            var random = Math.random(); // 0과 1 사이의 랜덤한 숫자 생성
-            var successCountElement = document.getElementById("successCount");
-            var successRateElement = document.getElementById("successRate");
-            var failureRateElement = document.getElementById("failureRate");
-            var enhanceButton = document.getElementById("enhanceButton");
-            var enchanceRateElement = document.getElementById("enchanceRate")
-            var enhanceLevelElement = document.getElementById("enhanceLevel"); // 강화 레벨 표시 요소 추가
-
-            if (successCount < 5) {
-                if (random < successRate) {
-                    // 성공할 때
-                    successCount++;
-                    enhanceLevel++; // 강화 레벨 증가
-                    successCountElement.innerHTML = "<span class='success-text'>&nbsp;성공</span>";
-                    enhanceLevelElement.textContent = " (+" + enhanceLevel + ")"; // 강화 레벨 표시 업데이트
-                } else {
-                    // 실패할 때
-                    successCount = 0; // 숫자 초기화
-                    enhanceLevel = 0; // 강화 레벨 초기화
-                    successCountElement.innerHTML = "<span class='failure-text'>&nbsp;실패</span>";
-                    enhanceLevelElement.textContent = " (+" + enhanceLevel + ")"; // 강화 레벨 표시 업데이트
-                }
-            } else {
-                if (document.getElementById("itemImage").src.includes("sword.jpg")) { // 검이 +5로 강화됐을 때 총으로 바뀌어서 강화 단계를 다시 초기화
-                    document.getElementById("itemImage").src = "gun.jpg";
-                    document.getElementById("itemName").innerHTML = "총 <span id='enhanceLevel'>+0</span>";
-                    successRate = 0.7; // 성공 확률 변경
-                    failureRate = 0.3; // 실패 확률 변경
-                    successRateElement.textContent = "성공 확률: 70%";
-                    failureRateElement.textContent = "실패 확률: 30%";
-                    successCountElement.innerHTML = "<span class='success-text'>업그레이드 성공!</span>";
-                    enhanceLevel = 0; // 강화 레벨 초기화
-                    enableDexItem('dexItem2'); // 총 아이템 활성화
-                } else if (document.getElementById("itemImage").src.includes("gun.jpg")) {
-                    // 총이 +5로 강화됐을 때 로켓으로 바뀌어서 강화 단계를 다시 초기화
-                    document.getElementById("itemImage").src = "rocket.jpg";
-                    document.getElementById("itemName").innerHTML = "로켓 <span id='enhanceLevel'>+0</span>";
-                    successRate = 0.6; // 성공 확률 변경
-                    failureRate = 0.4; // 실패 확률 변경
-                    successRateElement.textContent = "성공 확률: 60%";
-                    failureRateElement.textContent = "실패 확률: 40%";
-                    successCountElement.innerHTML = "<span class='success-text'>업그레이드 성공!</span>";
-                    enhanceLevel = 0; // 강화 레벨 초기화
-                    enableDexItem('dexItem3'); // 로켓 아이템 활성화
-                } else if (document.getElementById("itemImage").src.includes("rocket.jpg")) { // 로켓이 +5로 강화됐을 때 핵으로 바뀌어서 강화 단계를 다시 초기화
-                    document.getElementById("itemImage").src = "nuclear.jpg";
-                    document.getElementById("itemName").innerHTML = "핵 <span id='enhanceLevel'>+0</span>";
-                    successRate = 0.5; // 성공 확률 변경
-                    failureRate = 0.5; // 실패 확률 변경
-                    successRateElement.textContent = "성공 확률: 50%";
-                    failureRateElement.textContent = "실패 확률: 50%";
-                    successCountElement.innerHTML = "<span class='success-text'>&nbsp;업그레이드 성공!</span>";
-                    enhanceLevel = 0; // 강화 레벨 초기화
-                    enableDexItem('dexItem4'); // 핵 아이템 활성화
-                } else if (document.getElementById("itemImage").src.includes("nuclear.jpg")) { // 핵이 +5로 강화됐을 때 풍선으로 바뀌고 강화하기 버튼 비활성화 및 텍스트 변경
-                    document.getElementById("itemImage").src = "balloon.jpg";
-                    document.getElementById("itemName").innerHTML = "풍선";
-                    enhanceButton.disabled = true;
-                    successCountElement.innerHTML = "<span class='success-text'>&nbsp;축하합니다!</span>";
-                    enhanceLevel = 0; // 강화 레벨 초기화
-                    // 이 부분을 주석 처리하여 텍스트가 사라지지 않도록 합니다.
-                    // successRateElement.textContent = " ";
-                    // failureRateElement.textContent = " ";
-                    // enchanceRateElement.textContent = " ";
-                }
-                successCount = 0; // 숫자 초기화
-            }
-        }
-
-        // 별점과 코멘트를 저장할 배열
-        var ratings = [];
-        var comments = [];
-        var maxCommentLength = 200;
-
-        // DOM 요소에 대한 참조
-        var commentInput = document.getElementById('comment');
-        var commentCountElement = document.getElementById('comment-count');
-        var averageRatingElement = document.getElementById('average-rating');
-
-        // 입력한 코멘트의 길이를 확인하고 제한을 적용하는 함수
-        function saveRatingAndComment() {
-            var comment = commentInput.value;
-            if (comment.trim().length === 0) {
-                alert('댓글을 입력하세요.');
-                return;
-            }
-            if (comment.length > maxCommentLength) {
-                alert('댓글은 최대 ' + maxCommentLength + '자까지 입력할 수 있습니다.');
-                return;
-            }
-
-            // 선택된 별점
-            var selectedRating = document.querySelector('input[name="rating"]:checked');
-            if (!selectedRating) {
-                alert('별점을 선택해주세요.');
-                return;
-            }
-
-            // 입력된 이름
-            var name = document.getElementById('username').value;
-
-            // 현재 시간
-            var currentTime = new Date();
-            var timeString = currentTime.toLocaleString();
-
-            // 별점과 코멘트를 배열에 저장
-            ratings.push(selectedRating.value);
-            comments.push({
-                name: name,
-                comment: comment,
-                time: timeString,
-                rating: selectedRating.value
-            });
-
-            // 저장된 별점과 코멘트를 표시
-            displayRatingsAndComments();
-            // 댓글 수 업데이트
-            updateCommentCount();
-            // 평균 별점 계산 및 표시
-            calculateAndDisplayAverageRating();
-        }
-
-        // 별점과 코멘트를 표시하는 함수
-        function displayRatingsAndComments() {
-            // 평균 별점 표시
-            var averageRating = calculateAverageRating();
-            averageRatingElement.innerHTML = '평균 별점: ' + '⭐'.repeat(Math.round(averageRating)) + '☆'.repeat(5 - Math.round(averageRating)) + ' (' + averageRating.toFixed(1) + '점)';
-
-            // 코멘트 목록 표시
-            var commentsList = document.getElementById('comments-list');
-            commentsList.innerHTML = '';
-            comments.forEach(function (comment, index) {
-                var li = document.createElement('li');
-
-                // 별점을 추가
-                var ratingSpan = document.createElement('span');
-                ratingSpan.className = 'star';
-                ratingSpan.textContent = '⭐'.repeat(parseInt(comment.rating)) + '☆'.repeat(5 - parseInt(comment.rating));
-                li.appendChild(ratingSpan);
-
-                // 줄바꿈 추가
-                li.appendChild(document.createElement('br'));
-
-                // 코멘트를 추가
-                var commentSpan = document.createElement('span');
-                commentSpan.textContent = comment.comment;
-                li.appendChild(commentSpan);
-
-                // 줄바꿈 추가
-                li.appendChild(document.createElement('br'));
-
-                // 이름을 추가
-                var nameSpan = document.createElement('span');
-                nameSpan.className = 'comment-name';
-                nameSpan.textContent = comment.name + ' ';
-                li.appendChild(nameSpan);
-
-                // 시간을 추가
-                var timeSpan = document.createElement('span');
-                timeSpan.className = 'comment-time';
-                timeSpan.textContent = '(' + comment.time + ')';
-                li.appendChild(timeSpan);
-
-                // 삭제 버튼 추가
-                var deleteButton = document.createElement('button');
-                deleteButton.className = 'delete-comment';
-                deleteButton.textContent = '삭제하기';
-                deleteButton.setAttribute('onclick', `deleteComment(${index})`);
-                li.appendChild(deleteButton);
-
-                commentsList.appendChild(li);
-            });
-        }
-
-        // 평균 별점 계산하는 함수
-        function calculateAverageRating() {
-            var totalRating = ratings.reduce(function (acc, rating) {
-                return acc + parseInt(rating);
-            }, 0);
-            return totalRating / ratings.length;
-        }
-
-        // 댓글 수 업데이트 함수
-        function updateCommentCount() {
-            commentCountElement.textContent = '(' + comments.length + ')';
-        }
-    </script>
-
+    <script src="star.js"></script>
+    <script src="reinforce.js"></script>
 </body>
 
 </html>
