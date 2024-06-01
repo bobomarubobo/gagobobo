@@ -8,7 +8,10 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Nanum+Gothic+Coding&family=Noto+Sans+KR:wght@100..900&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Nanum+Gothic+Coding&family=Noto+Sans+KR:wght@100..900&display=swap"
+        rel="stylesheet">
+    
 
     <style>
         .header {
@@ -18,12 +21,14 @@
             border-radius: 10px;
             margin-top: 20px;
             text-align: center;
+            /* 텍스트 중앙 정렬 */
             font-family: "Noto Sans KR", sans-serif;
             font-size: x-large;
             font-weight: bold;
             top: 0;
         }
 
+        /* 공통 버튼 스타일 */
         button,
         .btn-primary {
             padding: 10px 20px;
@@ -35,6 +40,7 @@
             transition: background-color 0.3s ease;
         }
 
+        /* 버튼 호버 스타일 */
         button:hover,
         .btn-primary:hover {
             background-color: rgb(22, 22, 97);
@@ -44,6 +50,7 @@
             display: flex;
             justify-content: center;
             margin-top: 20px;
+            /* 버튼 위로 간격 추가 */
         }
 
         .nav a {
@@ -63,6 +70,8 @@
             height: 80px;
             margin: 20px 30px 20px 30px;
             margin-left: 10px;
+            /* 마진 레프트*/
+            text-emphasis: none;
             text-align: center;
             line-height: 50px;
             background-color: blue;
@@ -81,6 +90,8 @@
             height: 80px;
             margin: 20px 40px 20px 40px;
             margin-left: 120px;
+            /* 마진 레프트*/
+            text-emphasis: none;
             text-align: center;
             line-height: 50px;
             background-color: blue;
@@ -98,9 +109,17 @@
             font-family: "Noto Sans KR", sans-serif;
             font-size: x-large;
             font-weight: bold;
+            background-image: url('./mainImg.jpg');
+            background-size: 2000px 1500px;
+            background-repeat: no-repeat;
+            background-position: top;
+        }
+
+        body {
             background-color: rgb(249, 249, 249);
         }
 
+        /*-----------------------------------------여기서 부터 컨테이너-----------------------------*/
         .container,
         #dexPageId {
             background-color: #ffffff;
@@ -113,20 +132,28 @@
         .item-image-container {
             position: relative;
             width: 30%;
+            /* width를 절반으로 설정 */
             padding-top: 30%;
+            /* height를 절반으로 설정 */
             overflow: hidden;
             border-radius: 10px;
             background-color: rgb(249, 249, 249);
             margin: 0 auto;
             max-height: calc(100vh - 80px);
+            /* container height보다 작게 설정 */
         }
 
         .item-image {
             width: 250px;
+            /* 고정 width 설정 */
             height: 250px;
+            /* 고정 height 설정 */
             object-fit: contain;
+            /* 전체 이미지를 보이게 설정 */
             margin: 0 auto;
+            /* 중앙 정렬 */
             display: block;
+            /* 중앙 정렬을 위해 display: block 설정 */
         }
 
         .item-title {
@@ -175,11 +202,14 @@
             color: rgb(201, 61, 115);
         }
 
+        /* star.css */
         #myform fieldset {
             display: flex;
             justify-content: center;
             direction: rtl;
+            /* 이모지 순서 반전 */
             border: 0;
+            /* 필드셋 테두리 제거 */
             text-align: center;
         }
 
@@ -189,37 +219,48 @@
 
         #myform input[type=radio] {
             display: none;
+            /* 라디오박스 감춤 */
         }
 
         #myform label {
             font-size: 1em;
+            /* 이모지 크기 */
             color: transparent;
+            /* 기존 이모지 컬러 제거 */
             text-shadow: 0 0 0 #f0f0f0;
+            /* 새 이모지 색상 부여 */
         }
 
         #myform label:hover {
             text-shadow: 0 0 0 #FFC83D;
+            /* 마우스 호버 */
         }
 
         #myform label:hover~label {
             text-shadow: 0 0 0 #FFC83D;
+            /* 마우스 호버 뒤에오는 이모지들 */
         }
 
         #myform input[type=radio]:checked~label {
             text-shadow: 0 0 0 #FFC83D;
+            /* 마우스 클릭 체크 */
         }
 
         .footer {
             padding: 20px;
             background-color: rgb(249, 249, 249);
             border: 1px solid #ccc;
+            /* 테두리 스타일 추가 */
             border-radius: 10px;
+            /* 테두리 둥글게 만듦 */
         }
 
+        /* 평균 별점을 중앙에 정렬하는 CSS */
         #average-rating {
             text-align: center;
         }
 
+        /* 평가 및 리뷰 제목 스타일 */
         .footer h3 {
             font-size: 29px;
             color: #333;
@@ -229,10 +270,12 @@
             font-weight: bold;
         }
 
+        /* 표의 크기 */
         .rating-form-table {
             width: 100%;
         }
 
+        /* 이름 및 비밀번호 입력란 스타일 */
         .rating-form-table input[type="text"] {
             width: 25%;
             padding: 8px;
@@ -304,6 +347,8 @@
             margin-bottom: 10px;
         }
 
+
+
         .delete-comment {
             padding: 5px 10px;
             background-color: blue;
@@ -311,220 +356,326 @@
             border: none;
             cursor: pointer;
             border-radius: 5px;
-            transition: background-color 0.3s ease;
+            transition: background-color 0.3s ease, transform 0.3s ease;
         }
 
         .delete-comment:hover {
             background-color: rgb(22, 22, 97);
+            transform: scale(1.1);
         }
 
-        .view-comments-btn {
-            padding: 10px 20px;
-            background-color: blue;
-            color: white;
-            border: none;
-            cursor: pointer;
-            border-radius: 5px;
-            transition: background-color 0.3s ease;
-            margin-top: 10px;
-        }
-
-        .view-comments-btn:hover {
+        .delete-comment:active {
             background-color: rgb(22, 22, 97);
+            transform: scale(1);
+        }
+
+        /* 도감 페이지 스타일 */
+        #dexPageId {
+            display: none;
+        }
+
+        .dex-container {
+            display: flex;
+            justify-content: center;
+        }
+
+        .dex-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 10px;
+            border: 1px solid #ddd;
+            margin: 10px;
+            width: 200px;
+            height: 300px;
+            pointer-events: none;
+            opacity: 0.5;
+            transition: all 0.3s ease;
+        }
+
+        .dex-item img {
+            width: 100%;
+            height: auto;
+        }
+
+        .dex-item h3 {
+            margin-top: auto;
+            margin-bottom: auto;
+        }
+
+        .dex-item.active {
+            pointer-events: auto;
+            opacity: 1;
+            cursor: pointer;
+        }
+
+        .dex-item.active:hover {
+            background-color: #f0f0f0;
+            transform: scale(1.05);
+        }
+
+        .dex-details {
+            display: none;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+
+        .dex-details img {
+            max-width: 100%;
+            height: auto;
         }
     </style>
 </head>
 
 <body>
-    <div class="header">
-        <div>마비노기 영웅전 강화 성공 확률 표</div>
-    </div>
+    <div class="header">나는 준일하다</div>
     <div class="nav">
-        <a id="enhancePageLink" href="#" onclick="showEnhancePage()">강화하기</a>
-        <a id="dexPageLink" href="#" onclick="showDexPage()">도감</a>
+        <a href="#" id="GG" onclick="goToEnhancePage()">강화</a>
+        <a href="#" id="DD" onclick="goToDexPage()">도감</a>
     </div>
-    <div class="container" id="enhancePage">
-        <div class="item-image-container">
-            <img src="https://cdn.ventisca.io/mabi/vs/images/1.png" alt="item image" class="item-image">
+    <div class="container" id="container">
+        <div class="row">
+            <div class="col-md-6">
+                <img src="sword.jpg" alt="강화 아이템" class="item-image" id="itemImage">
+            </div>
+            <div class="col-md-6">
+                <h1 class="item-title" id="itemName">검<span id="enhanceLevel">&nbsp;(+0)</span></h1>
+                <p class="item-description">
+                    강화 아이템에 대한 설명이 들어갈 부분입니다. 이 부분은 원하는 내용으로 수정할 수 있습니다.
+                </p>
+                <p class="item-description"></p>
+                <h2 id="enchanceRate">강화 확률</h2>
+                <p>
+                    <span id="successRate">성공 확률: 80%</span><br>
+                    <span id="failureRate">실패 확률: 20%</span>
+                </p>
+                <button class="btn btn-primary" type="button" onclick="enhance()" id="enhanceButton">강화하기</button>
+                <span id="successCount" class="enhancement-count"></span>
+            </div>
         </div>
-        <h1 class="item-title">강화 할 아이템</h1>
-        <p id="enchanceRate">현재 강화 수치: +<span id="enhance-level">0</span></p>
-        <p id="successRate">성공 확률: <span id="success-rate">100%</span></p>
-        <p id="failureRate">실패 확률: <span id="failure-rate">0%</span></p>
-        <button id="enhanceButton" onclick="enhanceItem()">강화하기</button>
-        <p id="result" class="pp"></p>
     </div>
-    <div class="container" id="dexPageId" style="display: none;">
-        <h1>도감</h1>
-        <table id="dexPage" class="table table-bordered">
-            <thead>
+
+    <div id="dexPageId" class="container">
+        <h1>도감 페이지</h1>
+        <div class="dex-container">
+            <div class="dex-item active" id="dexItem1" onclick="showDexDetails('item1')">
+                <img src="sword.jpg" alt="검">
+                <h3>검</h3>
+            </div>
+            <div class="dex-item" id="dexItem2" onclick="showDexDetails('item2')">
+                <img src="gun.jpg" alt="총">
+                <h3>총</h3>
+            </div>
+            <div class="dex-item" id="dexItem3" onclick="showDexDetails('item3')">
+                <img src="rocket.jpg" alt="로켓">
+                <h3>로켓</h3>
+            </div>
+            <div class="dex-item" id="dexItem4" onclick="showDexDetails('item4')">
+                <img src="nuclear.jpg" alt="핵">
+                <h3>핵</h3>
+            </div>
+        </div>
+        <div id="item1" class="dex-details">
+            <h2>검</h2>
+            <img src="image1.png" alt="검">
+            <p>검의 상세 설명입니다.</p>
+        </div>
+        <div id="item2" class="dex-details">
+            <h2>총</h2>
+            <img src="image2.png" alt="총">
+            <p>총의 상세 설명입니다.</p>
+        </div>
+        <div id="item3" class="dex-details">
+            <h2>로켓</h2>
+            <img src="image3.png" alt="로켓">
+            <p>로켓의 상세 설명입니다.</p>
+        </div>
+        <div id="item4" class="dex-details">
+            <h2>핵</h2>
+            <img src="image4.png" alt="핵">
+            <p>핵의 상세 설명입니다.</p>
+        </div>
+    </div>
+
+    <div class="footer">
+        <h3>평가 및 리뷰</h3>
+        <form name="myform" id="myform" method="post" action="./save">
+            <fieldset>
+                <legend>이모지 별점</legend>
+                <input type="radio" name="rating" value="5" id="rate1"><label for="rate1">⭐</label>
+                <input type="radio" name="rating" value="4" id="rate2"><label for="rate2">⭐</label>
+                <input type="radio" name="rating" value="3" id="rate3"><label for="rate3">⭐</label>
+                <input type="radio" name="rating" value="2" id="rate4"><label for="rate4">⭐</label>
+                <input type="radio" name="rating" value="1" id="rate5"><label for="rate5">⭐</label>
+            </fieldset>
+            <!-- 코멘트 입력 폼 -->
+            <table class="rating-form-table">
                 <tr>
-                    <th>아이템 이름</th>
-                    <th>설명</th>
-                    <th>평균 평점</th>
-                    <th>리뷰</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>아이템 1</td>
-                    <td>아이템 1 설명</td>
-                    <td id="average-rating">4.5</td>
-                    <td>
-                        <button class="view-comments-btn" data-item="item1">댓글 보기</button>
+                    <td colspan="2" align="left">
+                        댓글
+                        <span id="comment-count"></span>
                     </td>
                 </tr>
-            </tbody>
-        </table>
-        <div id="comment-section">
-            <h3>댓글</h3>
-            <ul id="comments-list">
-                <!-- 댓글이 여기에 추가됩니다 -->
-            </ul>
-            <form id="myform">
-                <fieldset class="rating-form-table">
-                    <legend>평점을 매겨주세요:</legend>
-                    <input type="radio" id="star5" name="rating" value="5"><label for="star5">★</label>
-                    <input type="radio" id="star4" name="rating" value="4"><label for="star4">★</label>
-                    <input type="radio" id="star3" name="rating" value="3"><label for="star3">★</label>
-                    <input type="radio" id="star2" name="rating" value="2"><label for="star2">★</label>
-                    <input type="radio" id="star1" name="rating" value="1"><label for="star1">★</label>
-                </fieldset>
-                <table class="rating-form-table">
-                    <tr>
-                        <td>이름:</td>
-                        <td><input type="text" id="comment-name"></td>
-                    </tr>
-                    <tr>
-                        <td>댓글:</td>
-                        <td><textarea id="comment-text"></textarea></td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td><button type="button" onclick="submitComment()">댓글 남기기</button></td>
-                    </tr>
-                </table>
-            </form>
+                <tr>
+                    <td colspan="2">
+                        <textarea id="comment" placeholder="내용을 입력하세요. (최대 200자)"></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="left">
+                        <input type="text" name="name" placeholder="아이디" id="username">
+                    </td>
+                    <td align="right">
+                        <button type="button" onclick="saveRatingAndComment()">작성하기</button>
+                    </td>
+                </tr>
+            </table>
+        </form>
+        <!-- 별점과 코멘트를 표시할 영역 -->
+        <div id="rating-comments">
+            <h3>별점과 댓글</h3>
+            <div id="average-rating"></div>
+            <ul id="comments-list"></ul>
         </div>
     </div>
-    <div class="footer">
-        <h3>현재 평균 평점: <span id="average-rating-footer">4.5</span></h3>
-    </div>
+    <script src="star.js"></script>
     <script>
-        let currentEnhanceLevel = 0;
+        function goToDexPage() {
+    hideCurrentPage();
+    showDexPage();5
+}
 
-        function enhanceItem() {
-            const enhanceLevel = document.getElementById('enhance-level');
-            const successRate = document.getElementById('success-rate');
-            const failureRate = document.getElementById('failure-rate');
-            const result = document.getElementById('result');
+function goToEnhancePage() {
+    hideDexPage();
+    showCurrentPage();
+}
 
-            const enhanceData = [
-                { level: 0, successRate: 100 },
-                { level: 1, successRate: 90 },
-                { level: 2, successRate: 80 },
-                { level: 3, successRate: 70 },
-                { level: 4, successRate: 60 },
-                { level: 5, successRate: 50 },
-                { level: 6, successRate: 40 },
-                { level: 7, successRate: 30 },
-                { level: 8, successRate: 20 },
-                { level: 9, successRate: 10 },
-                { level: 10, successRate: 5 }
-            ];
+function hideCurrentPage() {
+    var currentPage = document.getElementById('container');
+    currentPage.style.display = 'none';
+}
 
-            const currentData = enhanceData[currentEnhanceLevel];
-            const successProbability = currentData.successRate / 100;
+function showDexPage() {
+    var dexPage = document.getElementById('dexPageId');
+    dexPage.style.display = 'block';
+}
 
-            if (Math.random() < successProbability) {
-                currentEnhanceLevel++;
-                enhanceLevel.textContent = currentEnhanceLevel;
-                result.textContent = `강화에 성공했습니다! 현재 강화 수치: +${currentEnhanceLevel}`;
-                result.classList.remove('failure-text');
-                result.classList.add('success-text');
-            } else {
-                result.textContent = `강화에 실패했습니다. 현재 강화 수치: +${currentEnhanceLevel}`;
-                result.classList.remove('success-text');
-                result.classList.add('failure-text');
-            }
+function hideDexPage() {
+    var dexPage = document.getElementById('dexPageId');
+    dexPage.style.display = 'none';
+}
 
-            if (currentEnhanceLevel < enhanceData.length) {
-                const nextData = enhanceData[currentEnhanceLevel];
-                successRate.textContent = `${nextData.successRate}%`;
-                failureRate.textContent = `${100 - nextData.successRate}%`;
-            } else {
-                successRate.textContent = '0%';
-                failureRate.textContent = '100%';
-            }
+function showCurrentPage() {
+    var currentPage = document.getElementById('container');
+    currentPage.style.display = 'block';
+}
+
+function showDexDetails(itemId) {
+    // 모든 상세 정보 요소 숨기기
+    var details = document.getElementsByClassName('dex-details');
+    for (var i = 0; i < details.length; i++) {
+        details[i].style.display = 'none';
+    }
+    // 클릭한 항목의 상세 정보 보이기
+    var itemDetails = document.getElementById(itemId);
+    if (itemDetails) {
+        itemDetails.style.display = 'block';
+    }
+}
+
+function enableDexItem(itemId) {
+    var dexItem = document.getElementById(itemId);
+    dexItem.classList.add('active');
+}
+
+// 코멘트 삭제 함수
+function deleteComment(index) {
+    // 해당 인덱스의 댓글 삭제
+    comments.splice(index, 1);
+    // 삭제된 댓글을 제외한 나머지 댓글을 다시 표시
+    displayRatingsAndComments();
+    // 댓글 수 업데이트
+    updateCommentCount();
+    // 평균 별점 계산 및 표시
+    calculateAndDisplayAverageRating();
+}
+
+var successCount = 0;
+var successRate = 0.8; // 초기 성공 확률
+var failureRate = 0.2; // 초기 실패 확률
+var enhanceLevel = 0; // 강화 레벨 변수 추가
+
+function enhance() {
+    var random = Math.random(); // 0과 1 사이의 랜덤한 숫자 생성
+    var successCountElement = document.getElementById("successCount");
+    var successRateElement = document.getElementById("successRate");
+    var failureRateElement = document.getElementById("failureRate");
+    var enhanceButton = document.getElementById("enhanceButton");
+    var enchanceRateElement = document.getElementById("enchanceRate")
+    var enhanceLevelElement = document.getElementById("enhanceLevel"); // 강화 레벨 표시 요소 추가
+
+    if (successCount < 5) {
+        if (random < successRate) {
+            // 성공할 때
+            successCount++;
+            enhanceLevel++; // 강화 레벨 증가
+            successCountElement.innerHTML = "<span class='success-text'>&nbsp;성공</span>";
+            enhanceLevelElement.textContent = " (+" + enhanceLevel + ")"; // 강화 레벨 표시 업데이트
+        } else {
+            // 실패할 때
+            successCount = 0; // 숫자 초기화
+            enhanceLevel = 0; // 강화 레벨 초기화
+            successCountElement.innerHTML = "<span class='failure-text'>&nbsp;실패</span>";
+            enhanceLevelElement.textContent = " (+" + enhanceLevel + ")"; // 강화 레벨 표시 업데이트
         }
-
-        function showDexPage() {
-            document.getElementById('enhancePage').style.display = 'none';
-            document.getElementById('dexPageId').style.display = 'block';
+    } else {
+        if (document.getElementById("itemImage").src.includes("sword.jpg")) { // 검이 +5로 강화됐을 때 총으로 바뀌어서 강화 단계를 다시 초기화
+            document.getElementById("itemImage").src = "gun.jpg";
+            document.getElementById("itemName").innerHTML = "총 <span id='enhanceLevel'>+0</span>";
+            successRate = 0.7; // 성공 확률 변경
+            failureRate = 0.3; // 실패 확률 변경
+            successRateElement.textContent = "성공 확률: 70%";
+            failureRateElement.textContent = "실패 확률: 30%";
+            successCountElement.innerHTML = "<span class='success-text'>업그레이드 성공!</span>";
+            enhanceLevel = 0; // 강화 레벨 초기화
+            enableDexItem('dexItem2'); // 총 아이템 활성화
+        } else if (document.getElementById("itemImage").src.includes("gun.jpg")) {
+            // 총이 +5로 강화됐을 때 로켓으로 바뀌어서 강화 단계를 다시 초기화
+            document.getElementById("itemImage").src = "rocket.jpg";
+            document.getElementById("itemName").innerHTML = "로켓 <span id='enhanceLevel'>+0</span>";
+            successRate = 0.6; // 성공 확률 변경
+            failureRate = 0.4; // 실패 확률 변경
+            successRateElement.textContent = "성공 확률: 60%";
+            failureRateElement.textContent = "실패 확률: 40%";
+            successCountElement.innerHTML = "<span class='success-text'>업그레이드 성공!</span>";
+            enhanceLevel = 0; // 강화 레벨 초기화
+            enableDexItem('dexItem3'); // 로켓 아이템 활성화
+        } else if (document.getElementById("itemImage").src.includes("rocket.jpg")) { // 로켓이 +5로 강화됐을 때 핵으로 바뀌어서 강화 단계를 다시 초기화
+            document.getElementById("itemImage").src = "nuclear.jpg";
+            document.getElementById("itemName").innerHTML = "핵 <span id='enhanceLevel'>+0</span>";
+            successRate = 0.5; // 성공 확률 변경
+            failureRate = 0.5; // 실패 확률 변경
+            successRateElement.textContent = "성공 확률: 50%";
+            failureRateElement.textContent = "실패 확률: 50%";
+            successCountElement.innerHTML = "<span class='success-text'>&nbsp;업그레이드 성공!</span>";
+            enhanceLevel = 0; // 강화 레벨 초기화
+            enableDexItem('dexItem4'); // 핵 아이템 활성화
+        } else if (document.getElementById("itemImage").src.includes("nuclear.jpg")) { // 핵이 +5로 강화됐을 때 풍선으로 바뀌고 강화하기 버튼 비활성화 및 텍스트 변경
+            document.getElementById("itemImage").src = "balloon.jpg";
+            document.getElementById("itemName").innerHTML = "풍선";
+            enhanceButton.disabled = true;
+            successCountElement.innerHTML = "<span class='success-text'>&nbsp;축하합니다!</span>";
+            enhanceLevel = 0; // 강화 레벨 초기화
+            // 이 부분을 주석 처리하여 텍스트가 사라지지 않도록 합니다.
+            // successRateElement.textContent = " ";
+            // failureRateElement.textContent = " ";
+            // enchanceRateElement.textContent = " ";
         }
-
-        function showEnhancePage() {
-            document.getElementById('enhancePage').style.display = 'block';
-            document.getElementById('dexPageId').style.display = 'none';
-        }
-
-        const comments = [];
-
-        function submitComment() {
-            const name = document.getElementById('comment-name').value;
-            const text = document.getElementById('comment-text').value;
-            const rating = document.querySelector('input[name="rating"]:checked').value;
-
-            if (name && text && rating) {
-                const newComment = {
-                    name,
-                    text,
-                    rating: parseInt(rating),
-                    time: new Date().toLocaleString()
-                };
-
-                comments.push(newComment);
-                updateCommentsList();
-                updateAverageRating();
-                resetCommentForm();
-            } else {
-                alert('모든 필드를 입력해주세요.');
-            }
-        }
-
-        function updateCommentsList() {
-            const commentsList = document.getElementById('comments-list');
-            commentsList.innerHTML = '';
-
-            comments.forEach((comment, index) => {
-                const commentItem = document.createElement('li');
-                commentItem.innerHTML = `
-                    <span class="comment-name">${comment.name}</span>
-                    <span class="comment-time">${comment.time}</span>
-                    <span class="comment-text">${comment.text}</span>
-                    <button class="delete-comment" onclick="deleteComment(${index})">삭제</button>
-                `;
-                commentsList.appendChild(commentItem);
-            });
-        }
-
-        function updateAverageRating() {
-            const averageRating = comments.reduce((acc, comment) => acc + comment.rating, 0) / comments.length;
-            document.getElementById('average-rating').textContent = averageRating.toFixed(1);
-            document.getElementById('average-rating-footer').textContent = averageRating.toFixed(1);
-        }
-
-        function deleteComment(index) {
-            comments.splice(index, 1);
-            updateCommentsList();
-            updateAverageRating();
-        }
-
-        function resetCommentForm() {
-            document.getElementById('comment-name').value = '';
-            document.getElementById('comment-text').value = '';
-            document.querySelector('input[name="rating"]:checked').checked = false;
-        }
+        successCount = 0; // 숫자 초기화
+    }
+}
     </script>
 </body>
 
