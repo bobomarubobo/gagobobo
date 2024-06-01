@@ -455,6 +455,9 @@
                 <span id="successCount" class="enhancement-count"></span>
             </div>
         </div>
+        <div class="attempts-container">
+            <h3>지금 까지 강화 시도 횟수: <span id="attemptsCount">0</span></h3>
+        </div>
     </div>
 
     <div id="dexPageId" class="container">
@@ -606,6 +609,7 @@ var successCount = 0;
 var successRate = 0.8; // 초기 성공 확률
 var failureRate = 0.2; // 초기 실패 확률
 var enhanceLevel = 0; // 강화 레벨 변수 추가
+var attemptsCount = 0; // 강화 시도 횟수 변수 추가
 
 function enhance() {
     var random = Math.random(); // 0과 1 사이의 랜덤한 숫자 생성
@@ -615,7 +619,11 @@ function enhance() {
     var enhanceButton = document.getElementById("enhanceButton");
     var enchanceRateElement = document.getElementById("enchanceRate")
     var enhanceLevelElement = document.getElementById("enhanceLevel"); // 강화 레벨 표시 요소 추가
+    var attemptsCountElement = document.getElementById("attemptsCount"); // 강화 시도 횟수 표시 요소 추가
 
+    attemptsCount++; // 강화 시도 횟수 증가
+    attemptsCountElement.textContent = attemptsCount; // 강화 시도 횟수 표시 업데이트
+    
     if (successCount < 5) {
         if (random < successRate) {
             // 성공할 때
