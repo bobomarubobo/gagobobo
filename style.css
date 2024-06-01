@@ -11,9 +11,7 @@
     font-weight: bold;
     top: 0;
 }
-.containerbutton {
-    
-}
+
 /* 공통 버튼 스타일 */
 button,
 .btn-primary {
@@ -45,6 +43,13 @@ button:hover,
     color: rgb(0, 0, 0);
     text-decoration: none;
     border-radius: 5px;
+    margin: 0 10px;
+    /* 버튼 간격 추가 */
+}
+
+.nav a.active {
+    background-color: rgb(22, 22, 97);
+    color: white;
 }
 
 .nav a:hover {
@@ -72,6 +77,26 @@ button:hover,
 }
 
 #DD {
+    width: 200px;
+    height: 80px;
+    margin: 20px 40px 20px 40px;
+    margin-left: 120px;
+    /* 마진 레프트*/
+    text-emphasis: none;
+    text-align: center;
+    line-height: 50px;
+    background-color: blue;
+    color: white;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-decoration: none;
+    line-height: 60px;
+    font-family: "Noto Sans KR", sans-serif;
+    font-size: x-large;
+    font-weight: bold;
+}
+
+#clubEnhance {
     width: 200px;
     height: 80px;
     margin: 20px 40px 20px 40px;

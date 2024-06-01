@@ -115,3 +115,15 @@ function calculateAverageRating() {
 function updateCommentCount() {
     commentCountElement.textContent = '(' + comments.length + ')';
 }
+
+// 코멘트 삭제 함수
+function deleteComment(index) {
+    // 해당 인덱스의 댓글 삭제
+    comments.splice(index, 1);
+    // 삭제된 댓글을 제외한 나머지 댓글을 다시 표시
+    displayRatingsAndComments();
+    // 댓글 수 업데이트
+    updateCommentCount();
+    // 평균 별점 계산 및 표시
+    calculateAndDisplayAverageRating();
+}
