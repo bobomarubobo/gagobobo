@@ -21,7 +21,8 @@
         <div> <!-- 왼쪽에 공간을 만들기 위한 빈 div -->
             <!-- 여기에 내용을 추가할 수 있습니다 -->
         </div>
-        <button class="btn btn-primary" type="button" onclick="toggleStyle()" id="changeStyleButton">밝은 테마</button> <!-- 버튼 이동 -->
+        <button class="btn btn-primary" type="button" onclick="toggleStyle()" id="changeStyleButton">밝은 테마</button>
+        <!-- 버튼 이동 -->
     </div>
     <div class="nav">
         <a href="#" id="GG" onclick="goToEnhancePage()">강화</a>
@@ -34,22 +35,41 @@
                 <img src="sword.jpg" alt="강화 아이템" class="item-image" id="itemImage">
             </div>
             <div class="col-md-6">
-                <h1 class="item-title" id="itemName">검<span id="enhanceLevel">&nbsp;(+0)</span></h1>
-                <p class="item-description">
-                    강화 아이템에 대한 설명이 들어갈 부분입니다. 이 부분은 원하는 내용으로 수정할 수 있습니다.
-                </p>
-                <p class="item-description"></p>
-                <h2 id="enchanceRate">강화 확률</h2>
-                <p>
-                    <span id="successRate">성공 확률: 80%</span><br>
-                    <span id="failureRate">실패 확률: 20%</span>
-                </p>
-                <button class="btn btn-primary" type="button" onclick="enhance()" id="enhanceButton">강화하기</button>
-                <span id="successCount" class="enhancement-count"></span>
+                <table>
+                    <tr>
+                        <td colspan="2">
+                            <h1 class="item-title" id="itemName" align="center">검<span
+                                    id="enhanceLevel">&nbsp;(+0)</span></h1>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <p class="item-description">
+                                강화 아이템에 대한 설명이 들어갈 부분입니다. 이 부분은 원하는 내용으로 수정할 수 있습니다.
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td rowspan="2">
+                            <h2 id="enchanceRate">강화 확률</h2>
+                            <span id="successRate">성공 확률: 80%</span><br>
+                            <span id="failureRate">실패 확률: 20%</span>
+                        </td>
+                        <td>
+                            <button class="btn btn-primary" type="button" onclick="enhance()"
+                                id="enhanceButton">강화하기</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div id="successCount" class="enhancement-count">결과 : </div>
+                        </td>
+                    </tr>
+                </table>
             </div>
         </div>
         <div class="attempts-container">
-            <h5>지금 까지 강화 시도 횟수: <span id="attemptsCount">0</span><span>&nbsp;(평균 강화 횟수 : 165)</span></h5>
+            <h5>지금까지 강화 시도 횟수: <span id="attemptsCount">0</span><span>&nbsp;(평균 강화 횟수 : 165)</span></h5>
         </div>
     </div>
     <div id="clubEnhancePage" class="container" style="display: none;">
@@ -58,7 +78,8 @@
                 <img src="club.jpg" alt="몽둥이 강화 아이템" class="item-image" id="clubItemImage">
             </div>
             <div class="col-md-6">
-                <h1 class="item-title" id="clubItemName">몽둥이<span id="clubEnhanceLevel">&nbsp;(+0)</span></h1>
+                <h1 class="item-title" id="clubItemName" align="center">몽둥이<span id="clubEnhanceLevel">&nbsp;(+0)</span>
+                </h1>
                 <p class="item-description">
                     몽둥이 강화 아이템에 대한 설명이 들어갈 부분입니다. 이 부분은 원하는 내용으로 수정할 수 있습니다.
                 </p>
@@ -120,7 +141,7 @@
     </div>
 
     <div class="footer">
-        <h3>평가 및 리뷰</h3>
+        <h3 align="center">평가 및 리뷰</h3>
         <form name="myform" id="myform" method="post" action="./save">
             <fieldset>
                 <legend>이모지 별점</legend>
@@ -170,10 +191,34 @@
             if (currentHref === "style.css") {
                 linkElement.setAttribute("href", "style2.css");
                 changeStyleButton.textContent = "어두운 테마";
+                changeButtonColor("dark");
             } else {
                 linkElement.setAttribute("href", "style.css");
                 changeStyleButton.textContent = "밝은 테마";
+                changeButtonColor("light");
             }
+        }
+
+        function changeButtonColor(theme) {
+            var buttons = document.querySelectorAll("button, .btn-primary, .rating-form-table button[type='button'], .delete-comment");
+            var hoverColor, activeColor;
+
+            if (theme === "dark") {
+                hoverColor = "rgb(65, 8, 37)";
+                activeColor = "#e91e63";
+            } else {
+                hoverColor = "rgb(22, 22, 97)";
+                activeColor = "blue";
+            }
+
+            buttons.forEach(function (button) {
+                button.addEventListener("mouseover", function () {
+                    button.style.backgroundColor = hoverColor;
+                });
+                button.addEventListener("mouseout", function () {
+                    button.style.backgroundColor = activeColor;
+                });
+            });
         }
 
 
@@ -281,6 +326,7 @@
             var enhanceLevelElement = document.getElementById("enhanceLevel"); // 강화 레벨 표시 요소 추가
             var attemptsCountElement = document.getElementById("attemptsCount"); // 강화 시도 횟수 표시 요소 추가
 
+
             attemptsCount++; // 강화 시도 횟수 증가
             attemptsCountElement.textContent = attemptsCount; // 강화 시도 횟수 표시 업데이트
 
@@ -289,13 +335,13 @@
                     // 성공할 때
                     successCount++;
                     enhanceLevel++; // 강화 레벨 증가
-                    successCountElement.innerHTML = "<span class='success-text'>&nbsp;성공</span>";
+                    successCountElement.innerHTML = "<span class='success-text'>결과 : 성공!</span>";
                     enhanceLevelElement.textContent = " (+" + enhanceLevel + ")"; // 강화 레벨 표시 업데이트
                 } else {
                     // 실패할 때
                     successCount = 0; // 숫자 초기화
                     enhanceLevel = 0; // 강화 레벨 초기화
-                    successCountElement.innerHTML = "<span class='failure-text'>&nbsp;실패</span>";
+                    successCountElement.innerHTML = "<span class='failure-text'>결과 : 실패</span>";
                     enhanceLevelElement.textContent = " (+" + enhanceLevel + ")"; // 강화 레벨 표시 업데이트
                 }
             } else {
@@ -343,6 +389,13 @@
                 }
                 successCount = 0; // 숫자 초기화
             }
+            // 업그레이드 성공 여부에 따라 텍스트 변경
+            var successText = document.getElementById("successCount");
+            successText.textContent = "결과 : 업그레이드 성공";
+
+            // 버튼과 텍스트를 감싸는 div 요소의 클래스를 변경하여 CSS 적용
+            var enhancementInfo = document.getElementById("enhancementInfo");
+            enhancementInfo.classList.add("enhancement-info");
         }
         // 몽둥이 강화 기능
         var clubSuccessCount = 0;
