@@ -56,8 +56,7 @@
                             <span id="failureRate">실패 확률: 20%</span>
                         </td>
                         <td>
-                            <button class="btn btn-primary" type="button" onclick="enhance()"
-                                id="enhanceButton">강화하기</button>
+                            <button class="btn btn-primary" type="button" onclick="enhance()" id="enhanceButton">강화하기</button>
                         </td>
                     </tr>
                     <tr>
@@ -325,7 +324,7 @@
             var enchanceRateElement = document.getElementById("enchanceRate")
             var enhanceLevelElement = document.getElementById("enhanceLevel"); // 강화 레벨 표시 요소 추가
             var attemptsCountElement = document.getElementById("attemptsCount"); // 강화 시도 횟수 표시 요소 추가
-
+            
 
             attemptsCount++; // 강화 시도 횟수 증가
             attemptsCountElement.textContent = attemptsCount; // 강화 시도 횟수 표시 업데이트
@@ -389,13 +388,7 @@
                 }
                 successCount = 0; // 숫자 초기화
             }
-            // 업그레이드 성공 여부에 따라 텍스트 변경
-            var successText = document.getElementById("successCount");
-            successText.textContent = "결과 : 업그레이드 성공";
-
-            // 버튼과 텍스트를 감싸는 div 요소의 클래스를 변경하여 CSS 적용
-            var enhancementInfo = document.getElementById("enhancementInfo");
-            enhancementInfo.classList.add("enhancement-info");
+            
         }
         // 몽둥이 강화 기능
         var clubSuccessCount = 0;
