@@ -16,7 +16,7 @@
 button,
 .btn-primary {
     padding: 10px 20px;
-    background-color: blue;
+    background-color: #e91e63;
     color: white;
     border: none;
     cursor: pointer;
@@ -39,7 +39,7 @@ button:hover,
 
 .nav a {
     padding: 10px 20px;
-    background-color: blue;
+    background-color: #e91e63;
     color: rgb(0, 0, 0);
     text-decoration: none;
     border-radius: 5px;
@@ -48,7 +48,7 @@ button:hover,
 }
 
 .nav a.active {
-    background-color: rgb(211, 62, 124);
+    background-color: #e91e63;
     color: white;
 }
 
@@ -65,7 +65,7 @@ button:hover,
     text-emphasis: none;
     text-align: center;
     line-height: 50px;
-    background-color: rgb(211, 62, 124);
+    background-color: #e91e63;
     color: white;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -85,7 +85,7 @@ button:hover,
     text-emphasis: none;
     text-align: center;
     line-height: 50px;
-    background-color: rgb(211, 62, 124);
+    background-color: #e91e63;
     color: white;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -105,7 +105,7 @@ button:hover,
     text-emphasis: none;
     text-align: center;
     line-height: 50px;
-    background-color: blue;
+    background-color: #e91e63;
     color: white;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -206,11 +206,11 @@ body {
 }
 
 .success-text {
-    color: blue;
+    color: #e91e63;
 }
 
 .failure-text {
-    color: rgb(201, 61, 115);
+    color: #e91e63;
 }
 
 /* star.css */
@@ -313,7 +313,7 @@ body {
 
 .rating-form-table button[type="button"] {
     padding: 10px 20px;
-    background-color: blue;
+    background-color: #e91e63;
     color: white;
     border: none;
     cursor: pointer;
@@ -362,7 +362,7 @@ body {
 
 .delete-comment {
     padding: 5px 10px;
-    background-color: blue;
+    background-color: #e91e63;
     color: white;
     border: none;
     cursor: pointer;
