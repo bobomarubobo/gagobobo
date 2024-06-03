@@ -1,3 +1,8 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
 /* 기본 스타일 */
 body {
     font-family: "Noto Sans KR", sans-serif;
@@ -7,64 +12,71 @@ body {
     background-size: 2000px 1500px;
     background-repeat: no-repeat;
     background-position: top;
-    background-color: rgba(22, 20, 20, 0.011);
+    background-color: #303030;
+    color: #ffffffb3;
 }
 
+
+
+
 /* 공통 텍스트 스타일 */
-.header, .item-title, #enchanceRate, #enhanceButton, .footer h3 {
+.header,
+.item-title,
+#enchanceRate,
+#enhanceButton,
+#clubEnchanceRate,
+#clubEnhanceButton,
+#resetClubEnhanceButton, .footer h3 {
     font-family: "Noto Sans KR", sans-serif;
     font-size: x-large;
     font-weight: bold;
 }
 
 /* 공통 버튼 스타일 */
-button, .btn-primary, .rating-form-table button[type="button"], .delete-comment {
+button,
+.btn-primary,
+.btn-secondary,
+.rating-form-table button[type="button"],
+.delete-comment {
     padding: 10px 20px;
     background-color: #e91e63;
     color: white;
-    border: none;
     cursor: pointer;
     border-radius: 5px;
     transition: background-color 0.3s ease;
 }
 
-button:hover, .btn-primary:hover, .rating-form-table button[type="button"]:hover, .delete-comment:hover {
-    background-color: rgb(65, 8, 37);
-}
-
-
-button:focus,
-.btn-primary:focus,
-.rating-form-table button[type="button"]:focus,
-.delete-comment:focus {
-    outline: none;
-    /* 포커스시 테두리 제거 */
+button:hover,
+.btn-primary:hover,
+.btn-secondary:hover,
+.rating-form-table button[type="button"]:hover,
+.delete-comment:hover {
+    background-color:rgb(65, 8, 37);
 }
 
 .delete-comment:active {
     transform: scale(1);
 }
 
+
 /* 공통 컨테이너 스타일 */
-.container, #dexPageId, .footer, .dex-details {
+.container,
+#dexPageId,
+.footer,
+.dex-details {
     background-color: #424242;
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 1);
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.1);
     padding: 40px;
-    color: white;
-    margin-bottom: 20px;
+    margin-top: 100px;
 }
 
 /* 헤더 스타일 */
 .header {
-    background-color: #424242;
+    background-color: #e91e63;
     color: white;
-
-    padding: 20px;   
-    border: 1px solid #ccc;
-    margin-top: 20px;
+    padding: 20px;
     text-align: center;
-    top: 0;
 }
 
 /* 네비게이션 스타일 */
@@ -84,17 +96,20 @@ button:focus,
 }
 
 .nav a:hover {
-    background-color: rgb(65, 8, 37);
+    background-color:rgb(65, 8, 37);
     color: white;
-    
-}.nav a:active, .nav a:focus {
-    background-color: rgb(65, 8, 37);
+
+}
+
+.nav a:active {
+    background-color:rgb(65, 8, 37);
     color: white;
-    outline: none; /* 클릭 포커스시에 윤곽선 제거 */
 }
 
 /* 버튼 스타일 (GG, DD, clubEnhance) */
-#GG, #DD, #clubEnhance {
+#GG,
+#DD,
+#clubEnhance {
     width: 200px;
     height: 80px;
     text-align: center;
@@ -107,12 +122,16 @@ button:focus,
 }
 
 #GG {
-    margin: 20px 30px 20px 10px;
+    margin: 30px 30px -70px 10px;
 }
 
-#DD, #clubEnhance {
-    margin: 20px 40px 20px 120px;
-};
+#DD {
+    margin: 30px 10px -70px 30px;
+}
+
+#clubEnhance {
+    margin: 30px 40px -70px 40px;
+}
 
 /* 아이템 이미지 컨테이너 스타일 */
 .item-image-container {
@@ -135,11 +154,10 @@ button:focus,
 }
 
 /* 텍스트 스타일 */
-.item-title, #enchanceRate, #successRate, #failureRate, #enhanceButton {
-    margin-left: 190px;
-}
-
-#successRate, #failureRate {
+#successRate,
+#failureRate,
+#clubSuccessRate,
+#clubFailureRate {
     font-size: large;
 }
 
@@ -148,12 +166,9 @@ button:focus,
     margin-left: 430px;
 }
 
-.success-text {
-    color: blue;
-}
-
+.success-text,
 .failure-text {
-    color:  #e91e63;
+    color: #e91e63;
 }
 
 /* 별점 스타일 */
@@ -179,14 +194,15 @@ button:focus,
     text-shadow: 0 0 0 #f0f0f0;
 }
 
-#myform label:hover, #myform label:hover~label, #myform input[type=radio]:checked~label {
+#myform label:hover,
+#myform label:hover~label,
+#myform input[type=radio]:checked~label {
     text-shadow: 0 0 0 #FFC83D;
 }
 
 /* 푸터 스타일 */
 .footer {
     padding: 20px;
-    border: 1px solid #ccc;
 }
 
 #average-rating {
@@ -198,11 +214,11 @@ button:focus,
     width: 100%;
 }
 
-.rating-form-table input[type="text"], .rating-form-table textarea {
+.rating-form-table input[type="text"],
+.rating-form-table textarea {
     width: 25%;
     padding: 8px;
     margin: 5px 0;
-    border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
 }
@@ -226,7 +242,6 @@ button:focus,
 }
 
 #comments-list li {
-    border: 1px solid #ccc;
     padding: 15px;
     margin-bottom: 10px;
     border-radius: 5px;
@@ -276,7 +291,6 @@ button:focus,
     flex-direction: column;
     align-items: center;
     padding: 10px;
-    border: 1px solid #ddd;
     margin: 10px;
     width: 200px;
     height: 300px;
@@ -308,7 +322,6 @@ button:focus,
 
 .dex-details {
     padding: 20px;
-    border: 1px solid #ddd;
     border-radius: 5px;
     margin-top: 20px;
 }

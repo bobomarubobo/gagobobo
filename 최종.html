@@ -35,24 +35,24 @@
                 <img src="sword.jpg" alt="강화 아이템" class="item-image" id="itemImage">
             </div>
             <div class="col-md-6">
-                <h1 class="item-title" id="itemName" align="center">검<span id="enhanceLevel">&nbsp;(+0)</span></h1>
+                <h1 class="item-title" id="itemName">검<span id="enhanceLevel">&nbsp;(+0)</span></h1>
                 <p class="item-description">
                     강화 아이템에 대한 설명이 들어갈 부분입니다. 이 부분은 원하는 내용으로 수정할 수 있습니다.
                 </p>
-                <h2 id="enchanceRate" align="center">강화 확률</h2>
-                <p align="center">
+                <h2 id="enchanceRate">강화 확률</h2>
+                <p>
                     <span id="successRate">성공 확률: 80%</span><br>
                     <span id="failureRate">실패 확률: 20%</span>
                 </p>
-                <div class="button-wrapper"> <!-- 버튼을 감싸는 div 추가 -->
-                    <button class="btn btn-primary" type="button" onclick="enhance()" id="enhanceButton">강화하기</button>
-                    <span id="successCount" class="enhancement-count"></span>
-                </div>
-                
+
+                <button class="btn btn-primary" type="button" onclick="enhance()" id="enhanceButton">강화하기</button>
+                <span id="successCount" class="enhancement-count"></span>
+
+
             </div>
         </div>
         <div class="attempts-container">
-            <h5>지금 까지 강화 시도 횟수 : <span id="attemptsCount">0</span><span>&nbsp;(평균 강화 횟수 : 165)</span></h5>
+            <h5>지금까지 강화 시도 횟수 : <span id="attemptsCount">0</span><span>&nbsp;(평균 강화 횟수 : 165)</span></h5>
         </div>
     </div>
     <div id="clubEnhancePage" class="container" style="display: none;">
@@ -76,7 +76,11 @@
                 <button class="btn btn-secondary" type="button" onclick="resetClubEnhance()" id="resetClubEnhanceButton"
                     style="display:none;">재시도</button>
                 <span id="clubSuccessCount" class="enhancement-count"></span>
+                
             </div>
+        </div>
+        <div>
+            <h5>최고 기록 : <span id="clubBestRecord">0</span></h5>
         </div>
     </div>
 
@@ -190,7 +194,7 @@
                 activeColor = "#e91e63";
             } else {
                 hoverColor = "rgb(22, 22, 97)";
-                activeColor = "blue";
+                activeColor = "#3f51b5";
             }
 
             buttons.forEach(function (button) {
@@ -316,13 +320,13 @@
                     // 성공할 때
                     successCount++;
                     enhanceLevel++; // 강화 레벨 증가
-                    successCountElement.innerHTML = "<span class='success-text'>&nbsp;성공</span>";
+                    successCountElement.innerHTML = "<span class='success-text'>&nbsp;성공 ^-^</span>";
                     enhanceLevelElement.textContent = " (+" + enhanceLevel + ")"; // 강화 레벨 표시 업데이트
                 } else {
                     // 실패할 때
                     successCount = 0; // 숫자 초기화
                     enhanceLevel = 0; // 강화 레벨 초기화
-                    successCountElement.innerHTML = "<span class='failure-text'>&nbsp;실패</span>";
+                    successCountElement.innerHTML = "<span class='failure-text'>&nbsp;실패 ㅡ,ㅡ</span>";
                     enhanceLevelElement.textContent = " (+" + enhanceLevel + ")"; // 강화 레벨 표시 업데이트
                 }
             } else {
@@ -333,7 +337,7 @@
                     failureRate = 0.3; // 실패 확률 변경
                     successRateElement.textContent = "성공 확률: 70%";
                     failureRateElement.textContent = "실패 확률: 30%";
-                    successCountElement.innerHTML = "<span class='success-text'>업그레이드 성공!</span>";
+                    successCountElement.innerHTML = "<span class='success-text'>&nbsp;업그레이드 성공!</span>";
                     enhanceLevel = 0; // 강화 레벨 초기화
                     enableDexItem('dexItem2'); // 총 아이템 활성화
                 } else if (document.getElementById("itemImage").src.includes("gun.jpg")) {
@@ -344,7 +348,7 @@
                     failureRate = 0.4; // 실패 확률 변경
                     successRateElement.textContent = "성공 확률: 60%";
                     failureRateElement.textContent = "실패 확률: 40%";
-                    successCountElement.innerHTML = "<span class='success-text'>업그레이드 성공!</span>";
+                    successCountElement.innerHTML = "<span class='success-text'>&nbsp;업그레이드 성공!</span>";
                     enhanceLevel = 0; // 강화 레벨 초기화
                     enableDexItem('dexItem3'); // 로켓 아이템 활성화
                 } else if (document.getElementById("itemImage").src.includes("rocket.jpg")) { // 로켓이 +5로 강화됐을 때 핵으로 바뀌어서 강화 단계를 다시 초기화
@@ -376,6 +380,9 @@
         var clubSuccessRate = 0.9; // 초기 성공 확률
         var clubFailureRate = 0.1; // 초기 실패 확률
         var clubEnhanceLevel = 0; // 강화 레벨 변수 추가
+        var clubBestRecord = localStorage.getItem('clubBestRecord') || 0; // 로컬 스토리지에서 최고 기록을 가져옴
+
+        document.getElementById('clubBestRecord').textContent = clubBestRecord;
 
         function getClubSuccessRate(level) {
             if (level < 4) return 0.9;
@@ -416,17 +423,25 @@
                 // 성공할 때
                 clubSuccessCount++;
                 clubEnhanceLevel++; // 강화 레벨 증가
-                clubSuccessCountElement.innerHTML = "<span class='success-text'>&nbsp;성공</span>";
-                clubEnhanceLevelElement.textContent = " (+" + clubEnhanceLevel + ")"; // 강화 레벨 표시 업데이트
+                clubSuccessCountElement.innerHTML = "<span class='success-text'>&nbsp;성공 ^-^</span>";
+                clubEnhanceLevelElement.textContent = "강화 레벨: +" + clubEnhanceLevel; // 강화 레벨 표시 업데이트
                 clubSuccessRateElement.textContent = "성공 확률: " + (clubSuccessRate * 100).toFixed(0) + "%";
                 clubFailureRateElement.textContent = "실패 확률: " + (clubFailureRate * 100).toFixed(0) + "%";
+
+                // 최고 기록 갱신
+                if (clubEnhanceLevel > clubBestRecord) {
+                    clubBestRecord = clubEnhanceLevel;
+                    localStorage.setItem('clubBestRecord', clubBestRecord); // 로컬 스토리지에 저장
+                    document.getElementById('clubBestRecord').textContent = clubBestRecord;
+                }
             } else {
                 // 실패할 때
-                clubSuccessCountElement.innerHTML = "<span class='failure-text'>&nbsp;실패</span>";
+                clubSuccessCountElement.innerHTML = "<span class='failure-text'>&nbsp;실패 ㅡ,ㅡ</span>";
                 clubEnhanceButton.disabled = true; // 강화하기 버튼 비활성화
                 resetClubEnhanceButton.style.display = 'inline-block'; // 재시도 버튼 표시
             }
         }
+
         function resetClubEnhance() {
             var clubEnhanceButton = document.getElementById("clubEnhanceButton");
             var resetClubEnhanceButton = document.getElementById("resetClubEnhanceButton");
@@ -435,7 +450,7 @@
             var clubFailureRateElement = document.getElementById("clubFailureRate");
 
             clubEnhanceLevel = 0; // 강화 레벨 초기화
-            clubEnhanceLevelElement.textContent = " (+" + clubEnhanceLevel + ")"; // 강화 레벨 표시 업데이트
+            clubEnhanceLevelElement.textContent = "강화 레벨: +" + clubEnhanceLevel; // 강화 레벨 표시 업데이트
             clubSuccessRate = getClubSuccessRate(clubEnhanceLevel); // 초기 성공 확률 설정
             clubFailureRate = 1 - clubSuccessRate; // 초기 실패 확률 설정
             clubSuccessRateElement.textContent = "성공 확률: " + (clubSuccessRate * 100).toFixed(0) + "%";
@@ -444,6 +459,8 @@
             clubEnhanceButton.disabled = false; // 강화하기 버튼 활성화
             resetClubEnhanceButton.style.display = 'none'; // 재시도 버튼 숨기기
         }
+
+        
     </script>
 </body>
 
