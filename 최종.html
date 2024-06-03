@@ -121,7 +121,7 @@
         <div id="item4" class="dex-details">
             <h2>핵</h2>
             <img src="image4.png" alt="핵">
-            <p>검의 상세 설명입니다.</p>
+            <p>핵의 상세 설명입니다.</p>
         </div>
     </div>
 
@@ -360,7 +360,6 @@
                     successCountElement.innerHTML = "<span class='success-text'>&nbsp;업그레이드 성공!</span>";
                     enhanceLevel = 0; // 강화 레벨 초기화
                     enableDexItem('dexItem4'); // 핵 아이템 활성화
-                    itemDescriptionElement.textContent = "이 핵은 모든 것을 파괴할 수 있는 위력을 가지고 있습니다."; // 아이템 설명 업데이트
                 } else if (document.getElementById("itemImage").src.includes("nuclear.jpg")) { // 핵이 +5로 강화됐을 때 풍선으로 바뀌고 강화하기 버튼 비활성화 및 텍스트 변경
                     document.getElementById("itemImage").src = "balloon.jpg";
                     document.getElementById("itemName").innerHTML = "풍선";
