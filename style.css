@@ -198,7 +198,12 @@ button:hover,
 #myform label:hover,
 #myform label:hover~label,
 #myform input[type=radio]:checked~label {
-    text-shadow: 0 0 0 #FFC83D;
+    text-shadow: 0 0 0  #3f51b5;
+}
+
+/* 별표 스타일링 */
+.star {
+    color:  #3f51b5; /* 별표 색상 설정 */
 }
 
 /* 푸터 스타일 */
@@ -355,3 +360,4 @@ button:hover,
 .comment-time {
     color: #999;
 }
+
