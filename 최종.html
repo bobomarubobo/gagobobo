@@ -460,7 +460,7 @@
             var clubFailureRateElement = document.getElementById("clubFailureRate");
 
             clubEnhanceLevel = 0; // 강화 레벨 초기화
-            clubEnhanceLevelElement.textContent = "강화 레벨: +" + clubEnhanceLevel; // 강화 레벨 표시 업데이트
+            clubEnhanceLevelElement.textContent = "(+" + clubEnhanceLevel+")"; // 강화 레벨 표시 업데이트
             clubSuccessRate = getClubSuccessRate(clubEnhanceLevel); // 초기 성공 확률 설정
             clubFailureRate = 1 - clubSuccessRate; // 초기 실패 확률 설정
             clubSuccessRateElement.textContent = "성공 확률: " + (clubSuccessRate * 100).toFixed(0) + "%";
