@@ -76,7 +76,6 @@
                 <button class="btn btn-secondary" type="button" onclick="resetClubEnhance()" id="resetClubEnhanceButton"
                     style="display:none;">재시도</button>
                 <span id="clubSuccessCount" class="enhancement-count"></span>
-                
             </div>
         </div>
         <div>
@@ -162,8 +161,8 @@
         </form>
         <!-- 별점과 코멘트를 표시할 영역 -->
         <div id="rating-comments">
+            <div id="average-rating">평균 별점 : ☆☆☆☆☆ (0.0점)</div>
             <h3>별점과 댓글</h3>
-            <div id="average-rating"></div>
             <ul id="comments-list"></ul>
         </div>
     </div>
@@ -320,13 +319,13 @@
                     // 성공할 때
                     successCount++;
                     enhanceLevel++; // 강화 레벨 증가
-                    successCountElement.innerHTML = "<span class='success-text'>&nbsp;성공 ^-^</span>";
+                    successCountElement.innerHTML = "<span class='success-text'>&nbsp;성공</span>";
                     enhanceLevelElement.textContent = " (+" + enhanceLevel + ")"; // 강화 레벨 표시 업데이트
                 } else {
                     // 실패할 때
                     successCount = 0; // 숫자 초기화
                     enhanceLevel = 0; // 강화 레벨 초기화
-                    successCountElement.innerHTML = "<span class='failure-text'>&nbsp;실패 ㅡ,ㅡ</span>";
+                    successCountElement.innerHTML = "<span class='failure-text'>&nbsp;실패</span>";
                     enhanceLevelElement.textContent = " (+" + enhanceLevel + ")"; // 강화 레벨 표시 업데이트
                 }
             } else {
@@ -423,7 +422,7 @@
                 // 성공할 때
                 clubSuccessCount++;
                 clubEnhanceLevel++; // 강화 레벨 증가
-                clubSuccessCountElement.innerHTML = "<span class='success-text'>&nbsp;성공 ^-^</span>";
+                clubSuccessCountElement.innerHTML = "<span class='success-text'>&nbsp;성공</span>";
                 clubEnhanceLevelElement.textContent = "강화 레벨: +" + clubEnhanceLevel; // 강화 레벨 표시 업데이트
                 clubSuccessRateElement.textContent = "성공 확률: " + (clubSuccessRate * 100).toFixed(0) + "%";
                 clubFailureRateElement.textContent = "실패 확률: " + (clubFailureRate * 100).toFixed(0) + "%";
@@ -436,7 +435,7 @@
                 }
             } else {
                 // 실패할 때
-                clubSuccessCountElement.innerHTML = "<span class='failure-text'>&nbsp;실패 ㅡ,ㅡ</span>";
+                clubSuccessCountElement.innerHTML = "<span class='failure-text'>&nbsp;실패</span>";
                 clubEnhanceButton.disabled = true; // 강화하기 버튼 비활성화
                 resetClubEnhanceButton.style.display = 'inline-block'; // 재시도 버튼 표시
             }

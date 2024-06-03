@@ -55,7 +55,7 @@ function saveRatingAndComment() {
 function displayRatingsAndComments() {
     // 평균 별점 표시
     var averageRating = calculateAverageRating();
-    averageRatingElement.innerHTML = '평균 별점: ' + '⭐'.repeat(Math.round(averageRating)) + '☆'.repeat(5 - Math.round(averageRating)) + ' (' + averageRating.toFixed(1) + '점)';
+    averageRatingElement.innerHTML = '평균 별점 : ' + '⭐'.repeat(Math.round(averageRating)) + '☆'.repeat(5 - Math.round(averageRating)) + ' (' + averageRating.toFixed(1) + '점)';
 
     // 코멘트 목록 표시
     var commentsList = document.getElementById('comments-list');
@@ -69,28 +69,20 @@ function displayRatingsAndComments() {
         ratingSpan.textContent = '⭐'.repeat(parseInt(comment.rating)) + '☆'.repeat(5 - parseInt(comment.rating));
         li.appendChild(ratingSpan);
 
-        // 줄바꿈 추가
-        li.appendChild(document.createElement('br'));
-
         // 코멘트를 추가
         var commentSpan = document.createElement('span');
+        commentSpan.className = 'comment-text';
         commentSpan.textContent = comment.comment;
         li.appendChild(commentSpan);
 
+        // 이름과 시간을 추가
+        var nameAndTimeSpan = document.createElement('span');
+        nameAndTimeSpan.className = 'comment-name-time';
+        nameAndTimeSpan.textContent = comment.name + ' (' + comment.time + ')';
+        li.appendChild(nameAndTimeSpan);
+
         // 줄바꿈 추가
         li.appendChild(document.createElement('br'));
-
-        // 이름을 추가
-        var nameSpan = document.createElement('span');
-        nameSpan.className = 'comment-name';
-        nameSpan.textContent = comment.name + ' ';
-        li.appendChild(nameSpan);
-
-        // 시간을 추가
-        var timeSpan = document.createElement('span');
-        timeSpan.className = 'comment-time';
-        timeSpan.textContent = '(' + comment.time + ')';
-        li.appendChild(timeSpan);
 
         // 삭제 버튼 추가
         var deleteButton = document.createElement('button');

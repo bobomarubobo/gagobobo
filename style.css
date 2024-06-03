@@ -329,3 +329,27 @@ button:hover,
     max-width: 100%;
     height: auto;
 }
+
+/* 코멘트 텍스트 스타일 */
+.comment-text {
+    display: block;
+    margin-top: 5px;
+    font-size: 1em;
+
+}
+
+/* 이름과 시간 텍스트 스타일 */
+.comment-name-time {
+    display: inline;
+    color: #555;
+    font-size: 0.5em;
+    margin-right: 10px;
+}
+
+.comment-name {
+    font-weight: bold;
+}
+
+.comment-time {
+    color: #999;
+}
