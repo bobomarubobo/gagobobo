@@ -71,6 +71,21 @@ button:hover,
     background-color: rgb(22, 22, 97);
 }
 
+/* 모든 버튼의 포커스 outline 제거 */
+button:focus,
+.btn-primary:focus,
+.rating-form-table button[type="button"]:focus,
+.delete-comment:focus,
+#enhanceButton:focus,
+#clubEnhanceButton:focus,
+#resetClubEnhanceButton:focus {
+    outline: none !important;
+}
+
+.delete-comment:active {
+    transform: scale(1);
+}
+
 /* 공통 컨테이너 스타일 */
 .container,
 #dexPageId,
