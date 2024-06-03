@@ -49,6 +49,7 @@
                             </p>
                         </td>
                     </tr>
+                    <tr><br><br></tr>
                     <tr>
                         <td rowspan="2">
                             <h2 id="enchanceRate">강화 확률</h2>
@@ -351,7 +352,7 @@
                     failureRate = 0.3; // 실패 확률 변경
                     successRateElement.textContent = "성공 확률: 70%";
                     failureRateElement.textContent = "실패 확률: 30%";
-                    successCountElement.innerHTML = "<span class='success-text'>업그레이드 성공!</span>";
+                    successCountElement.innerHTML = "<span class='success-text'>업그레이드!</span>";
                     enhanceLevel = 0; // 강화 레벨 초기화
                     enableDexItem('dexItem2'); // 총 아이템 활성화
                 } else if (document.getElementById("itemImage").src.includes("gun.jpg")) {
@@ -362,7 +363,7 @@
                     failureRate = 0.4; // 실패 확률 변경
                     successRateElement.textContent = "성공 확률: 60%";
                     failureRateElement.textContent = "실패 확률: 40%";
-                    successCountElement.innerHTML = "<span class='success-text'>업그레이드 성공!</span>";
+                    successCountElement.innerHTML = "<span class='success-text'>업그레이드!</span>";
                     enhanceLevel = 0; // 강화 레벨 초기화
                     enableDexItem('dexItem3'); // 로켓 아이템 활성화
                 } else if (document.getElementById("itemImage").src.includes("rocket.jpg")) { // 로켓이 +5로 강화됐을 때 핵으로 바뀌어서 강화 단계를 다시 초기화
@@ -372,7 +373,7 @@
                     failureRate = 0.5; // 실패 확률 변경
                     successRateElement.textContent = "성공 확률: 50%";
                     failureRateElement.textContent = "실패 확률: 50%";
-                    successCountElement.innerHTML = "<span class='success-text'>&nbsp;업그레이드 성공!</span>";
+                    successCountElement.innerHTML = "<span class='success-text'>&nbsp;업그레이드!</span>";
                     enhanceLevel = 0; // 강화 레벨 초기화
                     enableDexItem('dexItem4'); // 핵 아이템 활성화
                 } else if (document.getElementById("itemImage").src.includes("nuclear.jpg")) { // 핵이 +5로 강화됐을 때 풍선으로 바뀌고 강화하기 버튼 비활성화 및 텍스트 변경
