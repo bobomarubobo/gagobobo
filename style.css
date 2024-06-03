@@ -12,10 +12,31 @@ body {
     background-size: 2000px 1500px;
     background-repeat: no-repeat;
     background-position: top;
-    background-color: white;
+    background-color: rgb(249, 249, 249);
 }
 
+/* 컨테이너의 크기를 유지하고 텍스트의 변화에 따라 확장되도록 설정 */
+.col-md-6 {
+    min-width: 400px;
+    /* 최소 너비 지정 */
+}
 
+/* 버튼 컨테이너의 정렬을 고정하기 위해 display 속성 추가 */
+.attempts-container {
+    display: flex;
+    align-items: center;
+    /* 세로 중앙 정렬 */
+}
+/* 버튼과 텍스트를 감싸는 div 요소에 display: flex 속성 추가 */
+.enhancement-info {
+    display: flex;
+    align-items: center; /* 세로 중앙 정렬 */
+}
+
+/* 텍스트의 여백을 조절하기 위해 margin 추가 */
+.enhancement-count {
+    margin-right: 10px; /* 텍스트와 버튼 사이의 여백 조절 */
+}
 
 
 /* 공통 텍스트 스타일 */
@@ -43,13 +64,6 @@ button,
     transition: background-color 0.3s ease;
 }
 
-button:focus,
-.btn-primary:focus,
-.rating-form-table button[type="button"]:focus,
-.delete-comment:focus {
-    outline: none;
-}
-
 button:hover,
 .btn-primary:hover,
 .rating-form-table button[type="button"]:hover,
@@ -57,16 +71,14 @@ button:hover,
     background-color: rgb(22, 22, 97);
 }
 
-/* 모든 버튼의 포커스 outline 제거 */
 button:focus,
 .btn-primary:focus,
 .rating-form-table button[type="button"]:focus,
-.delete-comment:focus,
-#enhanceButton:focus,
-#clubEnhanceButton:focus,
-#resetClubEnhanceButton:focus {
-    outline: none !important;
+.delete-comment:focus {
+    outline: none;
+    /* 포커스시 테두리 제거 */
 }
+
 
 .delete-comment:active {
     transform: scale(1);
@@ -115,9 +127,12 @@ button:focus,
 
 }
 
-.nav a:active {
+.nav a:active,
+.nav a:focus {
     background-color: rgb(22, 22, 97);
     color: white;
+    outline: none;
+    /* 클릭 포커스시에 윤곽선 제거 */
 }
 
 /* 버튼 스타일 (GG, DD, clubEnhance) */
