@@ -166,7 +166,9 @@ button:hover,
     margin-left: 430px;
 }
 
-.success-text,
+.success-text{
+    color: #1ad151;
+}
 .failure-text {
     color: #e91e63;
 }
