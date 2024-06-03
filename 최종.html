@@ -79,7 +79,7 @@
             </div>
         </div>
         <div>
-            <h5>최고 기록 : <span id="clubBestRecord">0</span></h5>
+            <h5>최고 기록 : <span id="clubBestRecord">0</span><span>강</span></h5>
         </div>
     </div>
 
@@ -276,7 +276,13 @@
         document.addEventListener("DOMContentLoaded", function () {
             hideClubEnhancePage();
             showCurrentPage();
+        // 도감 페이지의 모든 상세 설명 숨기기
+        var details = document.getElementsByClassName('dex-details');
+            for (var i = 0; i < details.length; i++) {
+                details[i].style.display = 'none';
+            }
         });
+
         function showDexDetails(itemId) {
             // 모든 상세 정보 요소 숨기기
             var details = document.getElementsByClassName('dex-details');
