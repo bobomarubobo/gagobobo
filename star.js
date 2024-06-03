@@ -55,22 +55,7 @@ function saveRatingAndComment() {
 function displayRatingsAndComments() {
     // 평균 별점 표시
     var averageRating = calculateAverageRating();
-    var starsHTML = '';
-
-    // 별점이 5 미만인 경우 5로 설정
-    averageRating = Math.min(5, averageRating);
-
-    // 평균 별점만큼 별표(★) 생성
-    for (var i = 0; i < Math.floor(averageRating); i++) {
-        starsHTML += '<span class="star">★</span>';
-    }
-
-    // 남은 별표(☆) 생성
-    for (var j = 0; j < 5 - Math.floor(averageRating); j++) {
-        starsHTML += '<span class="star">☆</span>';
-    }
-
-    averageRatingElement.innerHTML = '평균 별점: ' + starsHTML;
+    averageRatingElement.innerHTML = '평균 별점 : ' + '⭐'.repeat(Math.round(averageRating)) + '☆'.repeat(5 - Math.round(averageRating)) + ' (' + averageRating.toFixed(1) + '점)';
 
     // 코멘트 목록 표시
     var commentsList = document.getElementById('comments-list');
@@ -81,7 +66,7 @@ function displayRatingsAndComments() {
         // 별점을 추가
         var ratingSpan = document.createElement('span');
         ratingSpan.className = 'star';
-        ratingSpan.textContent = '★'.repeat(parseInt(comment.rating)) + '☆'.repeat(5 - parseInt(comment.rating));
+        ratingSpan.textContent = '⭐'.repeat(parseInt(comment.rating)) + '☆'.repeat(5 - parseInt(comment.rating));
         li.appendChild(ratingSpan);
 
         // 코멘트를 추가
@@ -109,7 +94,6 @@ function displayRatingsAndComments() {
         commentsList.appendChild(li);
     });
 }
-
 
 // 평균 별점 계산하는 함수
 function calculateAverageRating() {

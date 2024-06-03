@@ -35,9 +35,9 @@
                 <img src="sword.jpg" alt="강화 아이템" class="item-image" id="itemImage">
             </div>
             <div class="col-md-6">
-                <h1 class="item-title" id="itemName">검<span id="enhanceLevel">&nbsp;(+0)</span></h1>
+                <h1 class="item-title" id="itemName">나뭇가지<span id="enhanceLevel">&nbsp;(+0)</span></h1>
                 <p class="item-description">
-                    강화 아이템에 대한 설명이 들어갈 부분입니다. 이 부분은 원하는 내용으로 수정할 수 있습니다.
+                    나뭇가지다. 툭치면 부러지지만, 맞으면 기분은 나쁘다.
                 </p>
                 <h2 id="enchanceRate">강화 확률</h2>
                 <p>
@@ -62,7 +62,7 @@
             </div>
             <div class="col-md-6">
                 <h1 class="item-title" id="clubItemName">몽둥이<span id="clubEnhanceLevel">&nbsp;(+0)</span></h1>
-                <p class="item-description">
+                <p class="item-description" id="item-description">
                     몽둥이 강화 아이템에 대한 설명이 들어갈 부분입니다. 이 부분은 원하는 내용으로 수정할 수 있습니다.
                 </p>
                 <p class="item-description"></p>
@@ -79,7 +79,7 @@
             </div>
         </div>
         <div>
-            <h5>최고 기록 : <span id="clubBestRecord">0</span></h5>
+            <h5>최고 기록 : <span id="clubBestRecord">0</span><span>강</span></h5>
         </div>
     </div>
 
@@ -87,26 +87,26 @@
         <h1>도감 페이지</h1>
         <div class="dex-container">
             <div class="dex-item active" id="dexItem1" onclick="showDexDetails('item1')">
-                <img src="sword.jpg" alt="검">
-                <h3>검</h3>
+                <img src="sword.jpg" alt="나뭇가지">
+                <h3>나뭇가지</h3>
             </div>
             <div class="dex-item" id="dexItem2" onclick="showDexDetails('item2')">
                 <img src="gun.jpg" alt="몽둥이">
                 <h3>몽둥이</h3>
             </div>
             <div class="dex-item" id="dexItem3" onclick="showDexDetails('item3')">
-                <img src="rocket.jpg" alt="로켓">
-                <h3>로켓</h3>
+                <img src="rocket.jpg" alt="목검">
+                <h3>목검</h3>
             </div>
             <div class="dex-item" id="dexItem4" onclick="showDexDetails('item4')">
-                <img src="nuclear.jpg" alt="핵">
-                <h3>핵</h3>
+                <img src="nuclear.jpg" alt="검">
+                <h3>검</h3>
             </div>
         </div>
         <div id="item1" class="dex-details">
-            <h2>검</h2>
+            <h2>나뭇가지</h2>
             <img src="image1.png" alt="검">
-            <p>검의 상세 설명입니다.</p>
+            <p>툭치면 부러지지만, 맞으면 기분은 나쁘다.</p>
         </div>
         <div id="item2" class="dex-details">
             <h2>몽둥이</h2>
@@ -114,12 +114,12 @@
             <p>몽둥이의 상세 설명입니다.</p>
         </div>
         <div id="item3" class="dex-details">
-            <h2>로켓</h2>
+            <h2>목검</h2>
             <img src="image3.png" alt="로켓">
             <p>목검의 상세 설명입니다.</p>
         </div>
         <div id="item4" class="dex-details">
-            <h2>핵</h2>
+            <h2>검</h2>
             <img src="image4.png" alt="핵">
             <p>검의 상세 설명입니다.</p>
         </div>
@@ -276,7 +276,13 @@
         document.addEventListener("DOMContentLoaded", function () {
             hideClubEnhancePage();
             showCurrentPage();
+        // 도감 페이지의 모든 상세 설명 숨기기
+        var details = document.getElementsByClassName('dex-details');
+            for (var i = 0; i < details.length; i++) {
+                details[i].style.display = 'none';
+            }
         });
+
         function showDexDetails(itemId) {
             // 모든 상세 정보 요소 숨기기
             var details = document.getElementsByClassName('dex-details');
@@ -310,6 +316,7 @@
             var enchanceRateElement = document.getElementById("enchanceRate")
             var enhanceLevelElement = document.getElementById("enhanceLevel"); // 강화 레벨 표시 요소 추가
             var attemptsCountElement = document.getElementById("attemptsCount"); // 강화 시도 횟수 표시 요소 추가
+            var itemDescriptionElement = document.querySelector(".item-description"); // 아이템 설명 요소
 
             attemptsCount++; // 강화 시도 횟수 증가
             attemptsCountElement.textContent = attemptsCount; // 강화 시도 횟수 표시 업데이트
@@ -331,7 +338,7 @@
             } else {
                 if (document.getElementById("itemImage").src.includes("sword.jpg")) { // 검이 +5로 강화됐을 때 총으로 바뀌어서 강화 단계를 다시 초기화
                     document.getElementById("itemImage").src = "gun.jpg";
-                    document.getElementById("itemName").innerHTML = "몽둥이 <span id='enhanceLevel'>+0</span>";
+                    document.getElementById("itemName").innerHTML = "총 <span id='enhanceLevel'>(+0)</span>";
                     successRate = 0.7; // 성공 확률 변경
                     failureRate = 0.3; // 실패 확률 변경
                     successRateElement.textContent = "성공 확률: 70%";
@@ -343,7 +350,7 @@
                 } else if (document.getElementById("itemImage").src.includes("gun.jpg")) {
                     // 총이 +5로 강화됐을 때 로켓으로 바뀌어서 강화 단계를 다시 초기화
                     document.getElementById("itemImage").src = "rocket.jpg";
-                    document.getElementById("itemName").innerHTML = "목검 <span id='enhanceLevel'>+0</span>";
+                    document.getElementById("itemName").innerHTML = "로켓 <span id='enhanceLevel'>(+0)</span>";
                     successRate = 0.6; // 성공 확률 변경
                     failureRate = 0.4; // 실패 확률 변경
                     successRateElement.textContent = "성공 확률: 60%";
@@ -354,7 +361,7 @@
                     itemDescriptionElement.textContent = "이 로켓은 강력한 폭발력을 자랑합니다."; // 아이템 설명 업데이트
                 } else if (document.getElementById("itemImage").src.includes("rocket.jpg")) { // 로켓이 +5로 강화됐을 때 핵으로 바뀌어서 강화 단계를 다시 초기화
                     document.getElementById("itemImage").src = "nuclear.jpg";
-                    document.getElementById("itemName").innerHTML = "검 <span id='enhanceLevel'>+0</span>";
+                    document.getElementById("itemName").innerHTML = "핵 <span id='enhanceLevel'>(+0)</span>";
                     successRate = 0.5; // 성공 확률 변경
                     failureRate = 0.5; // 실패 확률 변경
                     successRateElement.textContent = "성공 확률: 50%";
@@ -362,13 +369,13 @@
                     successCountElement.innerHTML = "<span class='success-text'>&nbsp;업그레이드 성공!</span>";
                     enhanceLevel = 0; // 강화 레벨 초기화
                     enableDexItem('dexItem4'); // 핵 아이템 활성화
-                    itemDescriptionElement.textContent = "손만 베여도 엄마 찾는데 검 휘두르다가 다치면 누구 찾을거임?"; // 아이템 설명 업데이트
                 } else if (document.getElementById("itemImage").src.includes("nuclear.jpg")) { // 핵이 +5로 강화됐을 때 풍선으로 바뀌고 강화하기 버튼 비활성화 및 텍스트 변경
                     document.getElementById("itemImage").src = "balloon.jpg";
                     document.getElementById("itemName").innerHTML = "풍선";
                     enhanceButton.disabled = true;
                     successCountElement.innerHTML = "<span class='success-text'>&nbsp;축하합니다!</span>";
                     enhanceLevel = 0; // 강화 레벨 초기화
+                    itemDescriptionElement.textContent = "이 풍선은 모든 강화를 완료한 최고의 아이템입니다."; // 아이템 설명 업데이트
                     // 이 부분을 주석 처리하여 텍스트가 사라지지 않도록 합니다.
                     // successRateElement.textContent = " ";
                     // failureRateElement.textContent = " ";
