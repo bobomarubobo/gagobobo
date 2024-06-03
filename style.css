@@ -165,9 +165,11 @@ button:hover,
     margin-left: 430px;
 }
 
-.success-text,
-.failure-text {
+.success-text{
     color: #3f51b5;
+}
+.failure-text {
+    color: #c44242;
 }
 
 /* 별점 스타일 */
