@@ -338,7 +338,11 @@
             } else {
                 if (document.getElementById("itemImage").src.includes("sword.jpg")) { // 검이 +5로 강화됐을 때 총으로 바뀌어서 강화 단계를 다시 초기화
                     document.getElementById("itemImage").src = "gun.jpg";
+<<<<<<< HEAD
                     document.getElementById("itemName").innerHTML = "총 <span id='enhanceLevel'>(+0)</span>";
+=======
+                    document.getElementById("itemName").innerHTML = "몽둥이 <span id='enhanceLevel'>+0</span>";
+>>>>>>> cc33386ed54f64912dcb3bfa76f368e4d86c12fd
                     successRate = 0.7; // 성공 확률 변경
                     failureRate = 0.3; // 실패 확률 변경
                     successRateElement.textContent = "성공 확률: 70%";
