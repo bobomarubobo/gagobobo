@@ -11,7 +11,7 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Nanum+Gothic+Coding&family=Noto+Sans+KR:wght@100..900&display=swap"
         rel="stylesheet">
-
+    
     <link rel="stylesheet" href="style.css" id="styleSheetLink">
 </head>
 
@@ -35,24 +35,40 @@
                 <img src="sword.jpg" alt="강화 아이템" class="item-image" id="itemImage">
             </div>
             <div class="col-md-6">
-                <h1 class="item-title" id="itemName" align="center">검<span id="enhanceLevel">&nbsp;(+0)</span></h1>
-                <p class="item-description">
-                    강화 아이템에 대한 설명이 들어갈 부분입니다. 이 부분은 원하는 내용으로 수정할 수 있습니다.
-                </p>
-                <h2 id="enchanceRate" align="center">강화 확률</h2>
-                <p align="center">
-                    <span id="successRate">성공 확률: 80%</span><br>
-                    <span id="failureRate">실패 확률: 20%</span>
-                </p>
-                <div class="button-wrapper"> <!-- 버튼을 감싸는 div 추가 -->
-                    <button class="btn btn-primary" type="button" onclick="enhance()" id="enhanceButton">강화하기</button>
-                    <span id="successCount" class="enhancement-count"></span>
-                </div>
-                
+                <table>
+                    <tr>
+                        <td colspan="2">
+                            <h1 class="item-title" id="itemName" align="center">검<span
+                                    id="enhanceLevel">&nbsp;(+0)</span></h1>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <p class="item-description">
+                                강화 아이템에 대한 설명이 들어갈 부분입니다. 이 부분은 원하는 내용으로 수정할 수 있습니다.
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td rowspan="2">
+                            <h2 id="enchanceRate">강화 확률</h2>
+                            <span id="successRate">성공 확률: 80%</span><br>
+                            <span id="failureRate">실패 확률: 20%</span>
+                        </td>
+                        <td>
+                            <button class="btn btn-primary" type="button" onclick="enhance()" id="enhanceButton">강화하기</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div id="successCount" class="enhancement-count">결과 : </div>
+                        </td>
+                    </tr>
+                </table>
             </div>
         </div>
         <div class="attempts-container">
-            <h5>지금 까지 강화 시도 횟수 : <span id="attemptsCount">0</span><span>&nbsp;(평균 강화 횟수 : 165)</span></h5>
+            <h5>지금까지 강화 시도 횟수: <span id="attemptsCount">0</span><span>&nbsp;(평균 강화 횟수 : 165)</span></h5>
         </div>
     </div>
     <div id="clubEnhancePage" class="container" style="display: none;">
@@ -61,7 +77,8 @@
                 <img src="club.jpg" alt="몽둥이 강화 아이템" class="item-image" id="clubItemImage">
             </div>
             <div class="col-md-6">
-                <h1 class="item-title" id="clubItemName">몽둥이<span id="clubEnhanceLevel">&nbsp;(+0)</span></h1>
+                <h1 class="item-title" id="clubItemName" align="center">몽둥이<span id="clubEnhanceLevel">&nbsp;(+0)</span>
+                </h1>
                 <p class="item-description">
                     몽둥이 강화 아이템에 대한 설명이 들어갈 부분입니다. 이 부분은 원하는 내용으로 수정할 수 있습니다.
                 </p>
@@ -190,7 +207,7 @@
                 activeColor = "#e91e63";
             } else {
                 hoverColor = "rgb(22, 22, 97)";
-                activeColor = "blue";
+                activeColor = "#3f51b5";
             }
 
             buttons.forEach(function (button) {
@@ -307,6 +324,7 @@
             var enchanceRateElement = document.getElementById("enchanceRate")
             var enhanceLevelElement = document.getElementById("enhanceLevel"); // 강화 레벨 표시 요소 추가
             var attemptsCountElement = document.getElementById("attemptsCount"); // 강화 시도 횟수 표시 요소 추가
+            
 
             attemptsCount++; // 강화 시도 횟수 증가
             attemptsCountElement.textContent = attemptsCount; // 강화 시도 횟수 표시 업데이트
@@ -316,13 +334,13 @@
                     // 성공할 때
                     successCount++;
                     enhanceLevel++; // 강화 레벨 증가
-                    successCountElement.innerHTML = "<span class='success-text'>&nbsp;성공</span>";
+                    successCountElement.innerHTML = "<span class='success-text'>결과 : 성공!</span>";
                     enhanceLevelElement.textContent = " (+" + enhanceLevel + ")"; // 강화 레벨 표시 업데이트
                 } else {
                     // 실패할 때
                     successCount = 0; // 숫자 초기화
                     enhanceLevel = 0; // 강화 레벨 초기화
-                    successCountElement.innerHTML = "<span class='failure-text'>&nbsp;실패</span>";
+                    successCountElement.innerHTML = "<span class='failure-text'>결과 : 실패</span>";
                     enhanceLevelElement.textContent = " (+" + enhanceLevel + ")"; // 강화 레벨 표시 업데이트
                 }
             } else {
