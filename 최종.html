@@ -91,8 +91,8 @@
                 <h3>검</h3>
             </div>
             <div class="dex-item" id="dexItem2" onclick="showDexDetails('item2')">
-                <img src="gun.jpg" alt="총">
-                <h3>총</h3>
+                <img src="gun.jpg" alt="몽둥이">
+                <h3>몽둥이</h3>
             </div>
             <div class="dex-item" id="dexItem3" onclick="showDexDetails('item3')">
                 <img src="rocket.jpg" alt="로켓">
@@ -109,19 +109,19 @@
             <p>검의 상세 설명입니다.</p>
         </div>
         <div id="item2" class="dex-details">
-            <h2>총</h2>
+            <h2>몽둥이</h2>
             <img src="image2.png" alt="총">
-            <p>총의 상세 설명입니다.</p>
+            <p>몽둥이의 상세 설명입니다.</p>
         </div>
         <div id="item3" class="dex-details">
             <h2>로켓</h2>
             <img src="image3.png" alt="로켓">
-            <p>로켓의 상세 설명입니다.</p>
+            <p>목검의 상세 설명입니다.</p>
         </div>
         <div id="item4" class="dex-details">
             <h2>핵</h2>
             <img src="image4.png" alt="핵">
-            <p>핵의 상세 설명입니다.</p>
+            <p>검의 상세 설명입니다.</p>
         </div>
     </div>
 
@@ -331,7 +331,7 @@
             } else {
                 if (document.getElementById("itemImage").src.includes("sword.jpg")) { // 검이 +5로 강화됐을 때 총으로 바뀌어서 강화 단계를 다시 초기화
                     document.getElementById("itemImage").src = "gun.jpg";
-                    document.getElementById("itemName").innerHTML = "총 <span id='enhanceLevel'>(+0)</span>";
+                    document.getElementById("itemName").innerHTML = "몽둥이 <span id='enhanceLevel'>+0</span>";
                     successRate = 0.7; // 성공 확률 변경
                     failureRate = 0.3; // 실패 확률 변경
                     successRateElement.textContent = "성공 확률: 70%";
@@ -339,6 +339,7 @@
                     successCountElement.innerHTML = "<span class='success-text'>&nbsp;업그레이드 성공!</span>";
                     enhanceLevel = 0; // 강화 레벨 초기화
                     enableDexItem('dexItem2'); // 총 아이템 활성화
+                    itemDescriptionElement.textContent = "이 총은 빠르고 정확한 사격이 가능합니다."; // 아이템 설명 업데이트
                 } else if (document.getElementById("itemImage").src.includes("gun.jpg")) {
                     // 총이 +5로 강화됐을 때 로켓으로 바뀌어서 강화 단계를 다시 초기화
                     document.getElementById("itemImage").src = "rocket.jpg";
@@ -350,6 +351,7 @@
                     successCountElement.innerHTML = "<span class='success-text'>&nbsp;업그레이드 성공!</span>";
                     enhanceLevel = 0; // 강화 레벨 초기화
                     enableDexItem('dexItem3'); // 로켓 아이템 활성화
+                    itemDescriptionElement.textContent = "이 로켓은 강력한 폭발력을 자랑합니다."; // 아이템 설명 업데이트
                 } else if (document.getElementById("itemImage").src.includes("rocket.jpg")) { // 로켓이 +5로 강화됐을 때 핵으로 바뀌어서 강화 단계를 다시 초기화
                     document.getElementById("itemImage").src = "nuclear.jpg";
                     document.getElementById("itemName").innerHTML = "핵 <span id='enhanceLevel'>(+0)</span>";
@@ -360,6 +362,7 @@
                     successCountElement.innerHTML = "<span class='success-text'>&nbsp;업그레이드 성공!</span>";
                     enhanceLevel = 0; // 강화 레벨 초기화
                     enableDexItem('dexItem4'); // 핵 아이템 활성화
+                    itemDescriptionElement.textContent = "이 핵은 모든 것을 파괴할 수 있는 위력을 가지고 있습니다."; // 아이템 설명 업데이트
                 } else if (document.getElementById("itemImage").src.includes("nuclear.jpg")) { // 핵이 +5로 강화됐을 때 풍선으로 바뀌고 강화하기 버튼 비활성화 및 텍스트 변경
                     document.getElementById("itemImage").src = "balloon.jpg";
                     document.getElementById("itemName").innerHTML = "풍선";
@@ -423,7 +426,7 @@
                 clubSuccessCount++;
                 clubEnhanceLevel++; // 강화 레벨 증가
                 clubSuccessCountElement.innerHTML = "<span class='success-text'>&nbsp;성공</span>";
-                clubEnhanceLevelElement.textContent = "강화 레벨: +" + clubEnhanceLevel; // 강화 레벨 표시 업데이트
+                clubEnhanceLevelElement.textContent = " (+" + clubEnhanceLevel + ")" ; // 강화 레벨 표시 업데이트
                 clubSuccessRateElement.textContent = "성공 확률: " + (clubSuccessRate * 100).toFixed(0) + "%";
                 clubFailureRateElement.textContent = "실패 확률: " + (clubFailureRate * 100).toFixed(0) + "%";
 
@@ -449,7 +452,7 @@
             var clubFailureRateElement = document.getElementById("clubFailureRate");
 
             clubEnhanceLevel = 0; // 강화 레벨 초기화
-            clubEnhanceLevelElement.textContent = "강화 레벨: +" + clubEnhanceLevel; // 강화 레벨 표시 업데이트
+            clubEnhanceLevelElement.textContent = "(+" + clubEnhanceLevel+")"; // 강화 레벨 표시 업데이트
             clubSuccessRate = getClubSuccessRate(clubEnhanceLevel); // 초기 성공 확률 설정
             clubFailureRate = 1 - clubSuccessRate; // 초기 실패 확률 설정
             clubSuccessRateElement.textContent = "성공 확률: " + (clubSuccessRate * 100).toFixed(0) + "%";
