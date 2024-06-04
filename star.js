@@ -35,12 +35,12 @@ function saveRatingAndComment() {
     var timeString = currentTime.toLocaleString();
 
     // 별점과 코멘트를 배열에 저장
-    ratings.push(selectedRating.value);
+    ratings.push(parseInt(selectedRating.value));
     comments.push({
         name: name,
         comment: comment,
         time: timeString,
-        rating: selectedRating.value
+        rating: parseInt(selectedRating.value)
     });
 
     // 저장된 별점과 코멘트를 표시
@@ -53,7 +53,43 @@ function saveRatingAndComment() {
 
 // 별점과 코멘트를 표시하는 함수
 function displayRatingsAndComments() {
-    // 평균 별점 표시
+    // 코멘트 목록 표시
+    var commentsList = document.getElementById('comments-list');
+    commentsList.innerHTML = '';
+    comments.forEach(function (comment, index) {
+        var li = document.createElement('li');
+
+        // 별점을 추가
+        var ratingSpan = document.createElement('span');
+        ratingSpan.className = 'star';
+        ratingSpan.textContent = '★'.repeat(comment.rating) + '☆'.repeat(5 - comment.rating);
+        li.appendChild(ratingSpan);
+
+        // 코멘트를 추가
+        var commentSpan = document.createElement('span');
+        commentSpan.className = 'comment-text';
+        commentSpan.textContent = comment.comment;
+        li.appendChild(commentSpan);
+
+        // 이름과 시간을 추가
+        var nameAndTimeSpan = document.createElement('span');
+        nameAndTimeSpan.className = 'comment-name-time';
+        nameAndTimeSpan.textContent = `${comment.name} (${comment.time})`;
+        li.appendChild(nameAndTimeSpan);
+
+        // 삭제 버튼 추가
+        var deleteButton = document.createElement('button');
+        deleteButton.className = 'delete-comment';
+        deleteButton.textContent = '삭제하기';
+        deleteButton.setAttribute('onclick', `deleteComment(${index})`);
+        li.appendChild(deleteButton);
+
+        commentsList.appendChild(li);
+    });
+}
+
+// 평균 별점 계산 및 표시하는 함수
+function calculateAndDisplayAverageRating() {
     var averageRating = calculateAverageRating();
     var starsHTML = '';
 
@@ -70,50 +106,13 @@ function displayRatingsAndComments() {
         starsHTML += '<span class="star">☆</span>';
     }
 
-    averageRatingElement.innerHTML = '평균 별점: ' + starsHTML;
-
-    // 코멘트 목록 표시
-    var commentsList = document.getElementById('comments-list');
-    commentsList.innerHTML = '';
-    comments.forEach(function (comment, index) {
-        var li = document.createElement('li');
-
-        // 별점을 추가
-        var ratingSpan = document.createElement('span');
-        ratingSpan.className = 'star';
-        ratingSpan.textContent = '★'.repeat(parseInt(comment.rating)) + '☆'.repeat(5 - parseInt(comment.rating));
-        li.appendChild(ratingSpan);
-
-        // 코멘트를 추가
-        var commentSpan = document.createElement('span');
-        commentSpan.className = 'comment-text';
-        commentSpan.textContent = comment.comment;
-        li.appendChild(commentSpan);
-
-        // 이름과 시간을 추가
-        var nameAndTimeSpan = document.createElement('span');
-        nameAndTimeSpan.className = 'comment-name-time';
-        nameAndTimeSpan.textContent = comment.name + ' (' + comment.time + ')';
-        li.appendChild(nameAndTimeSpan);
-
-        // 줄바꿈 추가
-        li.appendChild(document.createElement('br'));
-
-        // 삭제 버튼 추가
-        var deleteButton = document.createElement('button');
-        deleteButton.className = 'delete-comment';
-        deleteButton.textContent = '삭제하기';
-        deleteButton.setAttribute('onclick', `deleteComment(${index})`);
-        li.appendChild(deleteButton);
-
-        commentsList.appendChild(li);
-    });
+    averageRatingElement.innerHTML = `평점 : ${starsHTML} (${averageRating.toFixed(1)})`;
 }
 
 // 평균 별점 계산하는 함수
 function calculateAverageRating() {
     var totalRating = ratings.reduce(function (acc, rating) {
-        return acc + parseInt(rating);
+        return acc + rating;
     }, 0);
     return totalRating / ratings.length;
 }
@@ -127,6 +126,8 @@ function updateCommentCount() {
 function deleteComment(index) {
     // 해당 인덱스의 댓글 삭제
     comments.splice(index, 1);
+    // 해당 인덱스의 별점 삭제
+    ratings.splice(index, 1);
     // 삭제된 댓글을 제외한 나머지 댓글을 다시 표시
     displayRatingsAndComments();
     // 댓글 수 업데이트
