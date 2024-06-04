@@ -77,6 +77,9 @@ function displayRatingsAndComments() {
         nameAndTimeSpan.textContent = `${comment.name} (${comment.time})`;
         li.appendChild(nameAndTimeSpan);
 
+        // 줄바꿈 추가
+        li.appendChild(document.createElement('br'));
+
         // 삭제 버튼 추가
         var deleteButton = document.createElement('button');
         deleteButton.className = 'delete-comment';
@@ -106,7 +109,7 @@ function calculateAndDisplayAverageRating() {
         starsHTML += '<span class="star">☆</span>';
     }
 
-    averageRatingElement.innerHTML = `평점 : ${starsHTML} (${averageRating.toFixed(1)})`;
+    averageRatingElement.innerHTML = `평균 별점: ${starsHTML} (${averageRating.toFixed(1)})`;
 }
 
 // 평균 별점 계산하는 함수
