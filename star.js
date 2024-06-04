@@ -96,16 +96,22 @@ function calculateAndDisplayAverageRating() {
     var averageRating = calculateAverageRating();
     var starsHTML = '';
 
-    // 별점이 5 미만인 경우 5로 설정
-    averageRating = Math.min(5, averageRating);
+    // 반올림하지 않고 소수점 첫째 자리까지 표시
+    var fullStars = Math.floor(averageRating); // 정수 부분
+    var halfStar = (averageRating - fullStars >= 0.5) ? 1 : 0; // 0.5 이상인 경우 반별 표시
 
-    // 평균 별점만큼 별표(★) 생성
-    for (var i = 0; i < Math.floor(averageRating); i++) {
+    // 정수 별점만큼 별표(★) 생성
+    for (var i = 0; i < fullStars; i++) {
+        starsHTML += '<span class="star">★</span>';
+    }
+
+    // 반별(☆) 추가
+    if (halfStar) {
         starsHTML += '<span class="star">★</span>';
     }
 
     // 남은 별표(☆) 생성
-    for (var j = 0; j < 5 - Math.floor(averageRating); j++) {
+    for (var j = fullStars + halfStar; j < 5; j++) {
         starsHTML += '<span class="star">☆</span>';
     }
 
