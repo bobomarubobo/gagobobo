@@ -153,8 +153,17 @@ button:hover,
 }
 
 /* 텍스트 스타일 */
-#successRate,
-#failureRate,
+#attackPower{
+    font-size: large;
+}
+
+#successRate{
+    font-size: 24px;
+}
+#failureRate{
+    font-size: 24px;
+}
+
 #clubSuccessRate,
 #clubFailureRate {
     font-size: large;
