@@ -11,7 +11,11 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Nanum+Gothic+Coding&family=Noto+Sans+KR:wght@100..900&display=swap"
         rel="stylesheet">
-
+    <style>
+        #clubEnhance {
+            visibility: hidden;
+        }
+    </style>
     <link rel="stylesheet" href="style.css" id="styleSheetLink">
 </head>
 
@@ -109,19 +113,19 @@
             <p>툭치면 부러지지만, 맞으면 기분은 나쁘다.</p>
         </div>
         <div id="item2" class="dex-details">
-            <h2>몽둥이</h2>
+            <h2>각목</h2>
             <img src="image2.png" alt="총">
-            <p>몽둥이의 상세 설명입니다.</p>
+            <p>강린이 때리기에 너무 적합한 도구.</p>
         </div>
         <div id="item3" class="dex-details">
             <h2>목검</h2>
             <img src="image3.png" alt="로켓">
-            <p>목검의 상세 설명입니다.</p>
+            <p>검도 해 본 사람은 한 번쯤 휘둘러 본 목검. 잘못 맞으면 죽을 수도 있을 것 같다.</p>
         </div>
         <div id="item4" class="dex-details">
             <h2>검</h2>
             <img src="image4.png" alt="핵">
-            <p>검의 상세 설명입니다.</p>
+            <p>일제시대때 독립운동가들의 머리를 잘랐던 검. 한없이 날카롭다.</p>
         </div>
     </div>
 
@@ -336,9 +340,9 @@
                     enhanceLevelElement.textContent = " (+" + enhanceLevel + ")"; // 강화 레벨 표시 업데이트
                 }
             } else {
-                if (document.getElementById("itemImage").src.includes("sword.jpg")) { // 검이 +5로 강화됐을 때 총으로 바뀌어서 강화 단계를 다시 초기화
+                if (document.getElementById("itemImage").src.includes("sword.jpg")) { // 나뭇가지가 +5로 강화됐을 때 각목으로 바뀌어서 강화 단계를 다시 초기화
                     document.getElementById("itemImage").src = "gun.jpg";
-                    document.getElementById("itemName").innerHTML = "몽둥이 <span id='enhanceLevel'>(+0)</span>";
+                    document.getElementById("itemName").innerHTML = "각목 <span id='enhanceLevel'>(+0)</span>";
                     successRate = 0.7; // 성공 확률 변경
                     failureRate = 0.3; // 실패 확률 변경
                     successRateElement.textContent = "성공 확률: 70%";
@@ -348,7 +352,7 @@
                     enableDexItem('dexItem2'); // 총 아이템 활성화
                     itemDescriptionElement.textContent = "이 총은 빠르고 정확한 사격이 가능합니다."; // 아이템 설명 업데이트
                 } else if (document.getElementById("itemImage").src.includes("gun.jpg")) {
-                    // 총이 +5로 강화됐을 때 로켓으로 바뀌어서 강화 단계를 다시 초기화
+                    // 각목이 +5로 강화됐을 때 목검으로 바뀌어서 강화 단계를 다시 초기화
                     document.getElementById("itemImage").src = "rocket.jpg";
                     document.getElementById("itemName").innerHTML = "목검 <span id='enhanceLevel'>(+0)</span>";
                     successRate = 0.6; // 성공 확률 변경
@@ -358,8 +362,9 @@
                     successCountElement.innerHTML = "<span class='success-text'>&nbsp;업그레이드 성공!</span>";
                     enhanceLevel = 0; // 강화 레벨 초기화
                     enableDexItem('dexItem3'); // 로켓 아이템 활성화
-                    itemDescriptionElement.textContent = "이 로켓은 강력한 폭발력을 자랑합니다."; // 아이템 설명 업데이트
-                } else if (document.getElementById("itemImage").src.includes("rocket.jpg")) { // 로켓이 +5로 강화됐을 때 핵으로 바뀌어서 강화 단계를 다시 초기화
+                    itemDescriptionElement.textContent = "검도 해 본 사람은 한 번쯤 휘둘러 본 목검. 잘못 맞으면 죽을 수도 있을 것 같다."; // 아이템 설명 업데이트
+                    attackPowerElement.textContent = "공격력: 80 (+" + (enhanceLevel * attackIncrement) + ")"; // 공격력 초기화
+                } else if (document.getElementById("itemImage").src.includes("rocket.jpg")) { // 목검이 +5로 강화됐을 때 검으로 바뀌어서 강화 단계를 다시 초기화
                     document.getElementById("itemImage").src = "nuclear.jpg";
                     document.getElementById("itemName").innerHTML = "검 <span id='enhanceLevel'>(+0)</span>";
                     successRate = 0.5; // 성공 확률 변경
@@ -369,14 +374,16 @@
                     successCountElement.innerHTML = "<span class='success-text'>&nbsp;업그레이드 성공!</span>";
                     enhanceLevel = 0; // 강화 레벨 초기화
                     enableDexItem('dexItem4'); // 핵 아이템 활성화
-                    itemDescriptionElement.textContent = "이 핵은 모든 것을 파괴할 수 있는 위력을 가지고 있습니다."; // 아이템 설명 업데이트
-                } else if (document.getElementById("itemImage").src.includes("nuclear.jpg")) { // 핵이 +5로 강화됐을 때 풍선으로 바뀌고 강화하기 버튼 비활성화 및 텍스트 변경
+                    itemDescriptionElement.textContent = "일제시대때 독립운동가들의 머리를 잘랐던 검. 한없이 날카롭다."; // 아이템 설명 업데이트
+                    attackPowerElement.textContent = "공격력: 200 (+" + (enhanceLevel * attackIncrement) + ")"; // 공격력 초기화
+                } else if (document.getElementById("itemImage").src.includes("nuclear.jpg")) { // 핵=검이 +5로 강화됐을 때 강화하기 버튼 비활성화 및 텍스트 변경
                     document.getElementById("itemImage").src = "balloon.jpg";
-                    document.getElementById("itemName").innerHTML = "풍선";
+                    document.getElementById("itemName").innerHTML = "";
                     enhanceButton.disabled = true;
                     successCountElement.innerHTML = "<span class='success-text'>&nbsp;축하합니다!</span>";
                     enhanceLevel = 0; // 강화 레벨 초기화
-                    itemDescriptionElement.textContent = "이 풍선은 모든 강화를 완료한 최고의 아이템입니다."; // 아이템 설명 업데이트
+                    itemDescriptionElement.textContent = "'딸깍딸깍', 고생하셨습니다. 운이좋아 금방 끝나셨다면 몽둥이 강화를 해 보시는 건 어떨까요? 운의 한계를 시험 해보세요."; // 아이템 설명 업데이트
+                    document.getElementById('clubEnhance').style.visibility = 'visible'; // 몽둥이 강화 버튼 표시
                     // 이 부분을 주석 처리하여 텍스트가 사라지지 않도록 합니다.
                     // successRateElement.textContent = " ";
                     // failureRateElement.textContent = " ";
