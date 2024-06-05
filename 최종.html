@@ -20,7 +20,7 @@
 </head>
 
 <body>
-    <div class="header">나무 몽둥이 강화</div>
+    <div class="header">강화 게임</div>
     <div class="button-container d-flex justify-content-between align-items-center">
         <div> <!-- 왼쪽에 공간을 만들기 위한 빈 div -->
             <!-- 여기에 내용을 추가할 수 있습니다 -->
@@ -46,7 +46,8 @@
                 <h2 id="enchanceRate">강화 확률</h2>
                 <p>
                     <span id="successRate">성공 확률: 80%</span><br>
-                    <span id="failureRate">실패 확률: 20%</span>
+                    <span id="failureRate">실패 확률: 20%</span><br>
+                    <span id="attackPower">공격력: 1</span>
                 </p>
 
                 <button class="btn btn-primary" type="button" onclick="enhance()" id="enhanceButton">강화하기</button>
@@ -67,7 +68,7 @@
             <div class="col-md-6">
                 <h1 class="item-title" id="clubItemName">몽둥이<span id="clubEnhanceLevel">&nbsp;(+0)</span></h1>
                 <p class="item-description" id="item-description">
-                    몽둥이 강화 아이템에 대한 설명이 들어갈 부분입니다. 이 부분은 원하는 내용으로 수정할 수 있습니다.
+                    야구방망이로 쓰다가 부러질 것 같다.
                 </p>
                 <p class="item-description"></p>
                 <h2 id="clubEnchanceRate">강화 확률</h2>
@@ -321,10 +322,26 @@
             var enhanceLevelElement = document.getElementById("enhanceLevel"); // 강화 레벨 표시 요소 추가
             var attemptsCountElement = document.getElementById("attemptsCount"); // 강화 시도 횟수 표시 요소 추가
             var itemDescriptionElement = document.querySelector(".item-description"); // 아이템 설명 요소
+            var attackPowerElement = document.getElementById("attackPower"); // 공격력 표시 요소
+
+            var baseAttackPower;
+            var attackIncrement;
 
             attemptsCount++; // 강화 시도 횟수 증가
             attemptsCountElement.textContent = attemptsCount; // 강화 시도 횟수 표시 업데이트
-
+            if (document.getElementById("itemImage").src.includes("sword.jpg")) {
+                baseAttackPower = 1;
+                attackIncrement = 1;
+            } else if (document.getElementById("itemImage").src.includes("gun.jpg")) {
+                baseAttackPower = 30;
+                attackIncrement = 2;
+            } else if (document.getElementById("itemImage").src.includes("rocket.jpg")) {
+                baseAttackPower = 80;
+                attackIncrement = 5;
+            } else if (document.getElementById("itemImage").src.includes("nuclear.jpg")) {
+                baseAttackPower = 200;
+                attackIncrement = 10;
+            }
             if (successCount < 5) {
                 if (random < successRate) {
                     // 성공할 때
@@ -332,12 +349,14 @@
                     enhanceLevel++; // 강화 레벨 증가
                     successCountElement.innerHTML = "<span class='success-text'>&nbsp;성공</span>";
                     enhanceLevelElement.textContent = " (+" + enhanceLevel + ")"; // 강화 레벨 표시 업데이트
+                    attackPowerElement.textContent = "공격력: " + (baseAttackPower + enhanceLevel * attackIncrement) + " (+" + (enhanceLevel * attackIncrement) + ")";
                 } else {
                     // 실패할 때
                     successCount = 0; // 숫자 초기화
                     enhanceLevel = 0; // 강화 레벨 초기화
                     successCountElement.innerHTML = "<span class='failure-text'>&nbsp;실패</span>";
                     enhanceLevelElement.textContent = " (+" + enhanceLevel + ")"; // 강화 레벨 표시 업데이트
+                    attackPowerElement.textContent = "공격력: " + baseAttackPower + " (+" + (enhanceLevel * attackIncrement) + ")";
                 }
             } else {
                 if (document.getElementById("itemImage").src.includes("sword.jpg")) { // 나뭇가지가 +5로 강화됐을 때 각목으로 바뀌어서 강화 단계를 다시 초기화
@@ -351,6 +370,7 @@
                     enhanceLevel = 0; // 강화 레벨 초기화
                     enableDexItem('dexItem2'); // 총 아이템 활성화
                     itemDescriptionElement.textContent = "이 총은 빠르고 정확한 사격이 가능합니다."; // 아이템 설명 업데이트
+                    attackPowerElement.textContent = "공격력: 30 (+" + (enhanceLevel * attackIncrement) + ")"; // 공격력 초기화
                 } else if (document.getElementById("itemImage").src.includes("gun.jpg")) {
                     // 각목이 +5로 강화됐을 때 목검으로 바뀌어서 강화 단계를 다시 초기화
                     document.getElementById("itemImage").src = "rocket.jpg";
