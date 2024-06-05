@@ -38,7 +38,7 @@ button,
 .rating-form-table button[type="button"],
 .delete-comment {
     padding: 10px 20px;
-    background-color: #3f51b5;
+    background-color: #3f51b5 !important;
     color: white;
     cursor: pointer;
     border-radius: 5px;
@@ -51,6 +51,23 @@ button:hover,
 .rating-form-table button[type="button"]:hover,
 .delete-comment:hover {
     background-color: rgb(22, 22, 97);
+}
+
+.btn-primary {
+    padding: 10px 20px;
+    background-color: #3f51b5;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: none;
+}
+
+.btn-primary:hover {
+    background-color: rgb(22, 22, 97);
+}
+
+.btn-primary:active {
+    transform: scale(1);
 }
 
 .delete-comment:active {
@@ -300,7 +317,7 @@ button:hover,
     height: 300px;
     pointer-events: none;
     opacity: 0.5;
-    transition: all 0.3s ease;
+    transition: none;
 }
 
 .dex-item img {
