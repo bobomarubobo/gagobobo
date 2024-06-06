@@ -166,9 +166,14 @@ button:hover,
 #failureRate{
     font-size: 24px;
 }
-#clubSuccessRate,
+#clubAttackPower{
+    font-size: large
+}
+#clubSuccessRate{
+    font-size: 24px;
+}
 #clubFailureRate {
-    font-size: large;
+    font-size: 24px;
 }
 
 .pp {
