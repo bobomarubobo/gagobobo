@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,6 +13,13 @@
     <style>
         #clubEnhance {
             visibility: hidden;
+        }
+        .description-container {
+            height: 150px; /* 원하는 높이로 설정 */
+            overflow: hidden; /* 내용이 넘칠 경우 숨김 */
+        }
+        .item-container{
+            height:35px
         }
     </style>
     <link rel="stylesheet" href="style.css" id="styleSheetLink">
@@ -39,10 +45,14 @@
                 <img src="sword.jpg" alt="강화 아이템" class="item-image" id="itemImage">
             </div>
             <div class="col-md-6">
-                <h1 class="item-title" id="itemName">나뭇가지<span id="enhanceLevel">&nbsp;(+0)</span></h1>
-                <p class="item-description">
-                    나뭇가지다. 툭치면 부러지지만, 맞으면 기분은 나쁘다.
-                </p>
+                <div class="item-container">
+                    <h1 class="item-title" id="itemName">나뭇가지<span id="enhanceLevel">&nbsp;(+0)</span></h1>
+                </div>
+                    <div class="description-container">
+                    <p class="item-description">
+                        나뭇가지다. 툭치면 부러지지만, 맞으면 기분은 나쁘다.
+                    </p>
+                </div>
                 <h2 id="enchanceRate">강화 확률</h2>
                 <p>
                     <span id="successRate">성공 확률: 80%</span><br>
@@ -70,7 +80,6 @@
                 <p class="item-description" id="item-description">
                     야구방망이로 쓰다가 부러질 것 같다.
                 </p>
-                <p class="item-description"></p>
                 <h2 id="clubEnchanceRate">강화 확률</h2>
                 <p>
                     <span id="clubSuccessRate">성공 확률: 90%</span><br>
