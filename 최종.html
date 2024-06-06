@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,12 +15,16 @@
         #clubEnhance {
             visibility: hidden;
         }
+
         .description-container {
-            height: 150px; /* 원하는 높이로 설정 */
-            overflow: hidden; /* 내용이 넘칠 경우 숨김 */
+            height: 150px;
+            /* 원하는 높이로 설정 */
+            overflow: hidden;
+            /* 내용이 넘칠 경우 숨김 */
         }
-        .item-container{
-            height:35px
+
+        .item-container {
+            height: 35px
         }
     </style>
     <link rel="stylesheet" href="style.css" id="styleSheetLink">
@@ -48,7 +53,7 @@
                 <div class="item-container">
                     <h1 class="item-title" id="itemName">나뭇가지<span id="enhanceLevel">&nbsp;(+0)</span></h1>
                 </div>
-                    <div class="description-container">
+                <div class="description-container">
                     <p class="item-description">
                         나뭇가지다. 툭치면 부러지지만, 맞으면 기분은 나쁘다.
                     </p>
@@ -181,139 +186,98 @@
         </div>
     </div>
     <script src="star.js"></script>
+    <script src="theme.js"></script>
     <script>
-        function toggleStyle() {
-            var linkElement = document.getElementById("styleSheetLink");
-            var currentHref = linkElement.getAttribute("href");
-            var changeStyleButton = document.getElementById("changeStyleButton");
-
-            if (currentHref === "style.css") {
-                linkElement.setAttribute("href", "style2.css");
-                changeStyleButton.textContent = "어두운 테마";
-                changeButtonColor("dark");
-            } else {
-                linkElement.setAttribute("href", "style.css");
-                changeStyleButton.textContent = "밝은 테마";
-                changeButtonColor("light");
-            }
-        }
-
-        function changeButtonColor(theme) {
-            var buttons = document.querySelectorAll("button, .btn-primary, .rating-form-table button[type='button'], .delete-comment");
-            var hoverColor, activeColor;
-
-            if (theme === "dark") {
-                hoverColor = "rgb(65, 8, 37)";
-                activeColor = "#e91e63";
-            } else {
-                hoverColor = "rgb(22, 22, 97)";
-                activeColor = "#3f51b5";
-            }
-
-            buttons.forEach(function (button) {
-                button.addEventListener("mouseover", function () {
-                    button.style.backgroundColor = hoverColor;
-                });
-                button.addEventListener("mouseout", function () {
-                    button.style.backgroundColor = activeColor;
-                });
-            });
-        }
-
-
-
-
+        // 도감 페이지로 이동하는 함수
         function goToDexPage() {
-            hideCurrentPage();
-            showDexPage();
+            hideCurrentPage(); // 현재 페이지 숨기기
+            hideClubEnhancePage(); // 클럽 강화 페이지 숨기기
+            showDexPage(); // 도감 페이지 보이기
         }
 
+        // 강화 페이지로 이동하는 함수
         function goToEnhancePage() {
-            hideDexPage();
-            showCurrentPage();
+            hideDexPage(); // 도감 페이지 숨기기
+            hideClubEnhancePage(); // 클럽 강화 페이지 숨기기
+            showCurrentPage(); // 현재 페이지 보이기
         }
+
+        // 클럽 강화 페이지로 이동하는 함수
         function goToClubEnhancePage() {
-            document.getElementById('GG').classList.remove('active');
-            document.getElementById('DD').classList.remove('active');
-            document.getElementById('clubEnhance').classList.add('active');
-            hideCurrentPage();
-            hideDexPage();
-            // 추가 기능이 있다면 여기에 추가
-        }
-        function goToDexPage() {
-            hideCurrentPage();
-            hideClubEnhancePage();
-            showDexPage();
+            document.getElementById('GG').classList.remove('active'); // GG 버튼 비활성화
+            document.getElementById('DD').classList.remove('active'); // DD 버튼 비활성화
+            document.getElementById('clubEnhance').classList.add('active'); // 클럽 강화 버튼 활성화
+            hideCurrentPage(); // 현재 페이지 숨기기
+            hideDexPage(); // 도감 페이지 숨기기
+            showClubEnhancePage(); // 클럽 강화 페이지 보이기
         }
 
-        function goToEnhancePage() {
-            hideDexPage();
-            hideClubEnhancePage();
-            showCurrentPage();
-        }
-
-        function goToClubEnhancePage() {
-            hideCurrentPage();
-            hideDexPage();
-            showClubEnhancePage();
-        }
-
+        // 현재 페이지 숨기는 함수
         function hideCurrentPage() {
-            var currentPage = document.getElementById('container');
-            currentPage.style.display = 'none';
+            var currentPage = document.getElementById('container'); // 현재 페이지 요소 가져오기
+            currentPage.style.display = 'none'; // 현재 페이지 숨기기
         }
 
+        // 도감 페이지 보이기 함수
         function showDexPage() {
-            var dexPage = document.getElementById('dexPageId');
-            dexPage.style.display = 'block';
+            var dexPage = document.getElementById('dexPageId'); // 도감 페이지 요소 가져오기
+            dexPage.style.display = 'block'; // 도감 페이지 보이기
         }
 
+        // 도감 페이지 숨기기 함수
         function hideDexPage() {
-            var dexPage = document.getElementById('dexPageId');
-            dexPage.style.display = 'none';
+            var dexPage = document.getElementById('dexPageId'); // 도감 페이지 요소 가져오기
+            dexPage.style.display = 'none'; // 도감 페이지 숨기기
         }
 
+        // 현재 페이지 보이기 함수
         function showCurrentPage() {
-            var currentPage = document.getElementById('container');
-            currentPage.style.display = 'block';
+            var currentPage = document.getElementById('container'); // 현재 페이지 요소 가져오기
+            currentPage.style.display = 'block'; // 현재 페이지 보이기
         }
 
+        // 클럽 강화 페이지 숨기기 함수
         function hideClubEnhancePage() {
-            var clubEnhancePage = document.getElementById('clubEnhancePage');
-            clubEnhancePage.style.display = 'none';
+            var clubEnhancePage = document.getElementById('clubEnhancePage'); // 클럽 강화 페이지 요소 가져오기
+            clubEnhancePage.style.display = 'none'; // 클럽 강화 페이지 숨기기
         }
 
+        // 클럽 강화 페이지 보이기 함수
         function showClubEnhancePage() {
-            var clubEnhancePage = document.getElementById('clubEnhancePage');
-            clubEnhancePage.style.display = 'block';
+            var clubEnhancePage = document.getElementById('clubEnhancePage'); // 클럽 강화 페이지 요소 가져오기
+            clubEnhancePage.style.display = 'block'; // 클럽 강화 페이지 보이기
         }
+
+        // DOMContentLoaded 이벤트가 발생했을 때 실행될 코드
         document.addEventListener("DOMContentLoaded", function () {
-            hideClubEnhancePage();
-            showCurrentPage();
-        // 도감 페이지의 모든 상세 설명 숨기기
-        var details = document.getElementsByClassName('dex-details');
-            for (var i = 0; i < details.length; i++) {
-                details[i].style.display = 'none';
+            hideClubEnhancePage(); // 클럽 강화 페이지 숨기기
+            showCurrentPage(); // 현재 페이지 보이기
+
+            // 도감 페이지의 모든 상세 설명 숨기기
+            var details = document.getElementsByClassName('dex-details'); // 모든 상세 설명 요소 가져오기
+            for (var i = 0; i < details.length; i++) { // 각 상세 설명 요소에 대해 반복
+                details[i].style.display = 'none'; // 상세 설명 숨기기
             }
         });
 
+        // 도감 항목의 상세 정보 보이기 함수
         function showDexDetails(itemId) {
-            // 모든 상세 정보 요소 숨기기
-            var details = document.getElementsByClassName('dex-details');
-            for (var i = 0; i < details.length; i++) {
-                details[i].style.display = 'none';
+            var details = document.getElementsByClassName('dex-details'); // 모든 상세 정보 요소 가져오기
+            for (var i = 0; i < details.length; i++) { // 각 상세 정보 요소에 대해 반복
+                details[i].style.display = 'none'; // 상세 정보 숨기기
             }
-            // 클릭한 항목의 상세 정보 보이기
-            var itemDetails = document.getElementById(itemId);
-            if (itemDetails) {
-                itemDetails.style.display = 'block';
+            var itemDetails = document.getElementById(itemId); // 클릭한 항목의 상세 정보 요소 가져오기
+            if (itemDetails) { // 상세 정보 요소가 존재하면
+                itemDetails.style.display = 'block'; // 상세 정보 보이기
             }
         }
 
+        // 도감 항목을 활성화하는 함수
         function enableDexItem(itemId) {
-            var dexItem = document.getElementById(itemId);
-            dexItem.classList.add('active');
+            var dexItem = document.getElementById(itemId); // 도감 항목 요소 가져오기
+            dexItem.classList.add('active'); // 도감 항목 활성화
         }
+
 
         var successCount = 0;
         var successRate = 0.8; // 초기 성공 확률
@@ -506,7 +470,7 @@
             resetClubEnhanceButton.style.display = 'none'; // 재시도 버튼 숨기기
         }
 
-        
+
     </script>
 </body>
 

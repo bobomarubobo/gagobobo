@@ -10,8 +10,15 @@ var averageRatingElement = document.getElementById('average-rating');
 
 // 입력한 코멘트의 길이를 확인하고 제한을 적용하는 함수
 function saveRatingAndComment() {
-    var comment = commentInput.value;
-    if (comment.trim().length === 0) {
+    // 입력된 이름
+    var name = document.getElementById('username').value.trim();
+    if (name.length === 0) {
+        alert('아이디를 입력하세요.');
+        return;
+    }
+
+    var comment = commentInput.value.trim();
+    if (comment.length === 0) {
         alert('댓글을 입력하세요.');
         return;
     }
@@ -26,9 +33,6 @@ function saveRatingAndComment() {
         alert('별점을 선택해주세요.');
         return;
     }
-
-    // 입력된 이름
-    var name = document.getElementById('username').value;
 
     // 현재 시간
     var currentTime = new Date();
@@ -49,6 +53,11 @@ function saveRatingAndComment() {
     updateCommentCount();
     // 평균 별점 계산 및 표시
     calculateAndDisplayAverageRating();
+
+    // 입력 필드 초기화
+    commentInput.value = '';
+    document.getElementById('username').value = '';
+    document.querySelector('input[name="rating"]:checked').checked = false;
 }
 
 // 별점과 코멘트를 표시하는 함수
