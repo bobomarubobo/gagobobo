@@ -19,11 +19,11 @@ function saveRatingAndComment() {
 
     var comment = commentInput.value.trim();
     if (comment.length === 0) {
-        alert('댓글을 입력하세요.');
+        alert('리뷰를 입력하세요.');
         return;
     }
     if (comment.length > maxCommentLength) {
-        alert('댓글은 최대 ' + maxCommentLength + '자까지 입력할 수 있습니다.');
+        alert('리뷰는 최대 ' + maxCommentLength + '자까지 입력할 수 있습니다.');
         return;
     }
 
@@ -153,3 +153,14 @@ function deleteComment(index) {
     // 평균 별점 계산 및 표시
     calculateAndDisplayAverageRating();
 }
+
+document.addEventListener("DOMContentLoaded", function() {
+    const navLinks = document.querySelectorAll(".nav a");
+
+    navLinks.forEach(link => {
+        link.addEventListener("click", function() {
+            navLinks.forEach(link => link.classList.remove("active"));
+            this.classList.add("active");
+        });
+    });
+});

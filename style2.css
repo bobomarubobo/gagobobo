@@ -101,10 +101,12 @@ button:hover,
 
 }
 
-.nav a:active {
-    background-color:rgb(65, 8, 37);
-    color: white;
+.nav a:active,
+.nav a.active {
+    background-color: rgb(65, 8, 37)!important;
+    color: white!important;
 }
+
 
 /* 버튼 스타일 (GG, DD, clubEnhance) */
 #GG,
