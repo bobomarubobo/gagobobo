@@ -47,7 +47,7 @@
     <div class="container" id="container" style="display: block;">
         <div class="row">
             <div class="col-md-6">
-                <img src="sword.jpg" alt="강화 아이템" class="item-image" id="itemImage">
+                <img src="sword.png" alt="강화 아이템" class="item-image" id="itemImage">
             </div>
             <div class="col-md-6">
                 <div class="item-container">
@@ -78,7 +78,7 @@
     <div id="clubEnhancePage" class="container" style="display: none;">
         <div class="row">
             <div class="col-md-6">
-                <img src="club.jpg" alt="몽둥이 강화 아이템" class="item-image" id="clubItemImage">
+                <img src="club.png" alt="몽둥이 강화 아이템" class="item-image" id="clubItemImage">
             </div>
             <div class="col-md-6">
                 <h1 class="item-title" id="clubItemName">몽둥이<span id="clubEnhanceLevel">&nbsp;(+0)</span></h1>
@@ -107,7 +107,7 @@
         <h1>도감 페이지</h1>
         <div class="dex-container">
             <div class="dex-item active" id="dexItem1" onclick="showDexDetails('item1')">
-                <img src="sword.jpg" alt="나뭇가지">
+                <img src="sword.png" alt="나뭇가지">
                 <h3>나뭇가지</h3>
             </div>
             <div class="dex-item" id="dexItem2" onclick="showDexDetails('item2')">
@@ -115,27 +115,24 @@
                 <h3>각목</h3>
             </div>
             <div class="dex-item" id="dexItem3" onclick="showDexDetails('item3')">
-                <img src="rocket.jpg" alt="목검">
+                <img src="rocket.png" alt="목검">
                 <h3>목검</h3>
             </div>
             <div class="dex-item" id="dexItem4" onclick="showDexDetails('item4')">
-                <img src="nuclear.jpg" alt="검">
+                <img src="nuclear.png" alt="검">
                 <h3>검</h3>
             </div>
         </div>
         <div id="item1" class="dex-details">
             <h2>나뭇가지</h2>
-            <img src="image1.png" alt="검">
             <p>나뭇가지다. 맞으면 많이 따갑다.</p>
         </div>
         <div id="item2" class="dex-details">
             <h2>각목</h2>
-            <img src="image2.png" alt="총">
             <p>강린이 때리기에 너무 적합한 도구.</p>
         </div>
         <div id="item3" class="dex-details">
             <h2>목검</h2>
-            <img src="image3.png" alt="로켓">
             <p>검도 해 본 사람은 한 번쯤 휘둘러 본 목검. 잘못 맞으면 죽을 수도 있을 것 같다.</p>
         </div>
         <div id="item4" class="dex-details">
@@ -302,16 +299,16 @@
 
             attemptsCount++; // 강화 시도 횟수 증가
             attemptsCountElement.textContent = attemptsCount; // 강화 시도 횟수 표시 업데이트
-            if (document.getElementById("itemImage").src.includes("sword.jpg")) {
+            if (document.getElementById("itemImage").src.includes("sword.pn")) {
                 baseAttackPower = 1;
                 attackIncrement = 1;
-            } else if (document.getElementById("itemImage").src.includes("gun.jpg")) {
+            } else if (document.getElementById("itemImage").src.includes("gun.pn")) {
                 baseAttackPower = 30;
                 attackIncrement = 2;
-            } else if (document.getElementById("itemImage").src.includes("rocket.jpg")) {
+            } else if (document.getElementById("itemImage").src.includes("rocket.pn")) {
                 baseAttackPower = 80;
                 attackIncrement = 5;
-            } else if (document.getElementById("itemImage").src.includes("nuclear.jpg")) {
+            } else if (document.getElementById("itemImage").src.includes("nuclear.pn")) {
                 baseAttackPower = 200;
                 attackIncrement = 10;
             }
@@ -332,8 +329,8 @@
                     attackPowerElement.textContent = "공격력: " + baseAttackPower + " (+" + (enhanceLevel * attackIncrement) + ")";
                 }
             } else {
-                if (document.getElementById("itemImage").src.includes("sword.jpg")) { // 나뭇가지가 +5로 강화됐을 때 각목으로 바뀌어서 강화 단계를 다시 초기화
-                    document.getElementById("itemImage").src = "gun.jpg";
+                if (document.getElementById("itemImage").src.includes("sword.png")) { // 나뭇가지가 +5로 강화됐을 때 각목으로 바뀌어서 강화 단계를 다시 초기화
+                    document.getElementById("itemImage").src = "gun.png";
                     document.getElementById("itemName").innerHTML = "각목 <span id='enhanceLevel'>(+0)</span>";
                     successRate = 0.7; // 성공 확률 변경
                     failureRate = 0.3; // 실패 확률 변경
@@ -344,9 +341,9 @@
                     enableDexItem('dexItem2'); // 총 아이템 활성화
                     itemDescriptionElement.textContent = "강린이 때리기에 너무 적합한 도구."; // 아이템 설명 업데이트
                     attackPowerElement.textContent = "공격력: 30 (+" + (enhanceLevel * attackIncrement) + ")"; // 공격력 초기화
-                } else if (document.getElementById("itemImage").src.includes("gun.jpg")) {
+                } else if (document.getElementById("itemImage").src.includes("gun.png")) {
                     // 각목이 +5로 강화됐을 때 목검으로 바뀌어서 강화 단계를 다시 초기화
-                    document.getElementById("itemImage").src = "rocket.jpg";
+                    document.getElementById("itemImage").src = "rocket.png";
                     document.getElementById("itemName").innerHTML = "목검 <span id='enhanceLevel'>(+0)</span>";
                     successRate = 0.6; // 성공 확률 변경
                     failureRate = 0.4; // 실패 확률 변경
@@ -357,8 +354,8 @@
                     enableDexItem('dexItem3'); // 로켓 아이템 활성화
                     itemDescriptionElement.textContent = "검도 해 본 사람은 한 번쯤 휘둘러 본 목검. 잘못 맞으면 죽을 수도 있을 것 같다."; // 아이템 설명 업데이트
                     attackPowerElement.textContent = "공격력: 80 (+" + (enhanceLevel * attackIncrement) + ")"; // 공격력 초기화
-                } else if (document.getElementById("itemImage").src.includes("rocket.jpg")) { // 목검이 +5로 강화됐을 때 검으로 바뀌어서 강화 단계를 다시 초기화
-                    document.getElementById("itemImage").src = "nuclear.jpg";
+                } else if (document.getElementById("itemImage").src.includes("rocket.png")) { // 목검이 +5로 강화됐을 때 검으로 바뀌어서 강화 단계를 다시 초기화
+                    document.getElementById("itemImage").src = "nuclear.png";
                     document.getElementById("itemName").innerHTML = "검 <span id='enhanceLevel'>(+0)</span>";
                     successRate = 0.5; // 성공 확률 변경
                     failureRate = 0.5; // 실패 확률 변경
@@ -369,8 +366,8 @@
                     enableDexItem('dexItem4'); // 핵 아이템 활성화
                     itemDescriptionElement.textContent = "일제시대때 독립운동가들의 머리를 잘랐던 검. 한없이 날카롭다."; // 아이템 설명 업데이트
                     attackPowerElement.textContent = "공격력: 200 (+" + (enhanceLevel * attackIncrement) + ")"; // 공격력 초기화
-                } else if (document.getElementById("itemImage").src.includes("nuclear.jpg")) { // 핵=검이 +5로 강화됐을 때 강화하기 버튼 비활성화 및 텍스트 변경
-                    document.getElementById("itemImage").src = "balloon.jpg";
+                } else if (document.getElementById("itemImage").src.includes("nuclear.png")) { // 핵=검이 +5로 강화됐을 때 강화하기 버튼 비활성화 및 텍스트 변경
+                    document.getElementById("itemImage").src = "balloon.png";
                     document.getElementById("itemName").innerHTML = "";
                     enhanceButton.disabled = true;
                     successCountElement.innerHTML = "<span class='success-text'>&nbsp;축하합니다!</span>";
