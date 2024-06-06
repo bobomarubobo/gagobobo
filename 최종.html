@@ -55,7 +55,7 @@
                 </div>
                 <div class="description-container">
                     <p class="item-description">
-                        나뭇가지다. 툭치면 부러지지만, 맞으면 기분은 나쁘다.
+                        나뭇가지다. 맞으면 많이 따갑다.
                     </p>
                 </div>
                 <h2 id="enchanceRate">강화 확률</h2>
@@ -83,12 +83,13 @@
             <div class="col-md-6">
                 <h1 class="item-title" id="clubItemName">몽둥이<span id="clubEnhanceLevel">&nbsp;(+0)</span></h1>
                 <p class="item-description" id="item-description">
-                    야구방망이로 쓰다가 부러질 것 같다.
+                    야구방망이로 쓰다가 부러질 것 같다, 하지만 강화 단계가 올라가면 혹시 모른다.
                 </p>
                 <h2 id="clubEnchanceRate">강화 확률</h2>
                 <p>
                     <span id="clubSuccessRate">성공 확률: 90%</span><br>
-                    <span id="clubFailureRate">실패 확률: 10%</span>
+                    <span id="clubFailureRate">실패 확률: 10%</span><br>
+                    <span id="clubAttackPower">공격력: 1</span> <!-- 새로운 공격력 표시 -->
                 </p>
                 <button class="btn btn-primary" type="button" onclick="clubEnhance()"
                     id="clubEnhanceButton">강화하기</button>
@@ -125,7 +126,7 @@
         <div id="item1" class="dex-details">
             <h2>나뭇가지</h2>
             <img src="image1.png" alt="검">
-            <p>툭치면 부러지지만, 맞으면 기분은 나쁘다.</p>
+            <p>나뭇가지다. 맞으면 많이 따갑다.</p>
         </div>
         <div id="item2" class="dex-details">
             <h2>각목</h2>
@@ -342,7 +343,7 @@
                     successCountElement.innerHTML = "<span class='success-text'>&nbsp;업그레이드 성공!</span>";
                     enhanceLevel = 0; // 강화 레벨 초기화
                     enableDexItem('dexItem2'); // 총 아이템 활성화
-                    itemDescriptionElement.textContent = "이 총은 빠르고 정확한 사격이 가능합니다."; // 아이템 설명 업데이트
+                    itemDescriptionElement.textContent = "강린이 때리기에 너무 적합한 도구."; // 아이템 설명 업데이트
                     attackPowerElement.textContent = "공격력: 30 (+" + (enhanceLevel * attackIncrement) + ")"; // 공격력 초기화
                 } else if (document.getElementById("itemImage").src.includes("gun.jpg")) {
                     // 각목이 +5로 강화됐을 때 목검으로 바뀌어서 강화 단계를 다시 초기화
@@ -425,6 +426,7 @@
             var clubEnhanceButton = document.getElementById("clubEnhanceButton");
             var clubEnhanceLevelElement = document.getElementById("clubEnhanceLevel"); // 강화 레벨 표시 요소 추가
             var resetClubEnhanceButton = document.getElementById("resetClubEnhanceButton"); // 재시도 버튼
+            var clubAttackPowerElement = document.getElementById("clubAttackPower"); // 공격력 표시 요소 추가
 
             clubSuccessRate = getClubSuccessRate(clubEnhanceLevel);
             clubFailureRate = 1 - clubSuccessRate;
@@ -435,6 +437,7 @@
                 clubEnhanceLevel++; // 강화 레벨 증가
                 clubSuccessCountElement.innerHTML = "<span class='success-text'>&nbsp;성공</span>";
                 clubEnhanceLevelElement.textContent = " (+" + clubEnhanceLevel + ")"; // 강화 레벨 표시 업데이트
+                clubAttackPowerElement.textContent = "공격력: " + Math.pow(2, clubEnhanceLevel)
                 clubSuccessRateElement.textContent = "성공 확률: " + (clubSuccessRate * 100).toFixed(0) + "%";
                 clubFailureRateElement.textContent = "실패 확률: " + (clubFailureRate * 100).toFixed(0) + "%";
 
