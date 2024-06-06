@@ -137,8 +137,8 @@ button:hover,
 /* 아이템 이미지 컨테이너 스타일 */
 .item-image-container {
     position: relative;
-    width: 35%; /* 너비를 약간 더 넓힘 */
-    padding-top: 35%; /* 비율을 유지하면서 높이도 조정 */
+    width: 30%;
+    padding-top: 30%;
     overflow: hidden;
     border-radius: 10px;
     background-color: rgb(249, 249, 249);
@@ -147,8 +147,8 @@ button:hover,
 }
 
 .item-image {
-    width: 350px; /* 너비를 더 넓힘 */
-    height: 450px; /* 높이를 더 넓힘 */
+    width: 300px;
+    height: 400px;
     object-fit: contain;
     margin: 0 auto;
     display: block;
