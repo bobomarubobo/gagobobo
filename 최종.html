@@ -299,16 +299,16 @@
 
             attemptsCount++; // 강화 시도 횟수 증가
             attemptsCountElement.textContent = attemptsCount; // 강화 시도 횟수 표시 업데이트
-            if (document.getElementById("itemImage").src.includes("sword.pn")) {
+            if (document.getElementById("itemImage").src.includes("sword.png")) {
                 baseAttackPower = 1;
                 attackIncrement = 1;
-            } else if (document.getElementById("itemImage").src.includes("gun.pn")) {
+            } else if (document.getElementById("itemImage").src.includes("gun.png")) {
                 baseAttackPower = 30;
                 attackIncrement = 2;
-            } else if (document.getElementById("itemImage").src.includes("rocket.pn")) {
+            } else if (document.getElementById("itemImage").src.includes("rocket.png")) {
                 baseAttackPower = 80;
                 attackIncrement = 5;
-            } else if (document.getElementById("itemImage").src.includes("nuclear.pn")) {
+            } else if (document.getElementById("itemImage").src.includes("nuclear.png")) {
                 baseAttackPower = 200;
                 attackIncrement = 10;
             }
